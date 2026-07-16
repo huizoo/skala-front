@@ -68,6 +68,19 @@
             </p>
           </section>
           <section>
+            <h2>도시별 날씨</h2>
+            <label for="city-select">도시 선택:</label>
+            <select name="city-select" id="city-select">
+              <option value="">-- 도시를 선택해주세요 --</option>
+              <option value="seoul">서울</option>
+              <option value="gwangju">광주</option>
+              <option value="busan">부산</option>
+            </select>
+            <div id="weather-box" aria-live="polite">
+              도시를 선택하면 위치 정보가 표시됩니다.
+            </div>
+          </section>
+          <section>
             <h2>업다운 게임</h2>
             <button type="button" onclick="startUpDownGame()">
               업다운 게임
@@ -81,9 +94,7 @@
           </section>
           <section>
             <h2>내 가방 보기</h2>
-            <button type="button" onclick="showMyBag()">
-              내 가방 보기
-            </button>
+            <button type="button" onclick="showMyBag()">내 가방 보기</button>
           </section>
         </aside>
       </div>

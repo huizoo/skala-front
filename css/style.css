@@ -14,3 +14,7 @@ h1 {
   padding-bottom: 8px;
   border-bottom: 3px solid #1b5e20;
 }
+
+img, video {
+  width: 300px;
+}

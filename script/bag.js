@@ -8,14 +8,12 @@ const showMyBag = () => {
   ];
 
   let message = "[내 가방 속 물품 목록]\n\n";
-  let cnt = 0;
 
   for (const item of myBag) {
     message += `${item.name}: ${item.count}개\n`;
-    cnt++;
   }
 
-  message += `\n총 물품 종류: ${cnt}가지`;
+  message += `\n총 물품 종류: ${myBag.length}가지`;
 
   alert(message);
 };

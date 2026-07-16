@@ -25,9 +25,9 @@ const startUpDownGame = () => {
     cnt++;
 
     if (num < computerNum) {
-      alert("컴퓨터가 생각한 숫자는 입력한 숫자보다 큽니다!");
+      alert("Up! 컴퓨터가 생각한 숫자가 더 큽니다.");
     } else if (num > computerNum) {
-      alert("컴퓨터가 생각한 숫자는 입력한 숫자보다 작습니다!");
+      alert("Down! 컴퓨터가 생각한 숫자가 더 작습니다.");
     } else {
       const retry = confirm(
         `정답입니다! ${cnt}번의 시도 끝에 컴퓨터가 생각한 숫자를 맞췄습니다!\n다른 숫자도 맞춰보시겠습니까?`,

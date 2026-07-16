@@ -30,5 +30,7 @@ const calculateGrade = () => {
   const average = total / subjects.length;
   const result = average >= 60 ? "합격" : "불합격";
 
-  alert(`총점: ${total}점\n평균: ${average}점\n결과: ${result}입니다!`);
+  alert(
+    `총점: ${total}점\n평균: ${average.toFixed(2)}점\n결과: ${result}입니다!`,
+  );
 };

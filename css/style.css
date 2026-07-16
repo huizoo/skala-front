@@ -69,7 +69,7 @@ video {
 }
 
 .trip-card:hover {
-  transform: translayeY(-6px);
+  transform: translateY(-6px);
   box-shadow: 0 10px 20px rgba(27, 94, 32, 0.25);
 }
 

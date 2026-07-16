@@ -161,3 +161,108 @@ input[type="reset"]:hover {
   background-color: #bdbdbd;
   transform: translateY(-2px);
 }
+
+.shortcut-list {
+  display: flex;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.shortcut-list li {
+  flex: 1;
+}
+
+.shortcut-list a {
+  display: block;
+  padding: 12px;
+  border: 1px solid #a5d6a7;
+  border-radius: 6px;
+  background-color: #f1f8e9;
+  text-align: center;
+}
+
+.content-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.content-layout main,
+.content-layout aside {
+  padding: 20px;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+}
+
+.content-layout main {
+  flex: 3;
+  min-width: 0;
+  background-color: white;
+}
+
+.content-layout aside {
+  flex: 1;
+  background-color: #f9fdf9;
+}
+
+.content-layout h2 {
+  margin-top: 0;
+}
+
+.trip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.trip-grid h2 {
+  grid-column: 1 / -1;
+}
+
+.trip-grid .grip-card {
+  margin: 0;
+}
+
+.trip-grid img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 786px) {
+  .container {
+    width: 100%;
+    margin: 0;
+    padding: 16px;
+    border: none;
+  }
+
+  .shortcut-list {
+    flex-direction: column;
+  }
+
+  .shortcut-list li {
+    width: 100%;
+  }
+
+  .content-layout {
+    flex-direction: column;
+  }
+
+  .content-layout main,
+  .content-layout aside {
+    flex: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .trip-grid {
+    grid-template-columns: 1fr;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+}

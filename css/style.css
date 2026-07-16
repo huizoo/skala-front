@@ -207,21 +207,26 @@ input[type="reset"]:hover {
   align-items: flex-start;
 }
 
-.content-layout main,
-.content-layout aside {
-  padding: 20px;
-  border: 1px solid #c8e6c9;
-  border-radius: 8px;
-}
-
 .content-layout main {
   flex: 3;
   min-width: 0;
+  padding: 20px;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
   background-color: white;
 }
 
 .content-layout aside {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.content-layout aside section {
+  padding: 20px;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
   background-color: #f9fdf9;
 }
 
@@ -239,7 +244,7 @@ input[type="reset"]:hover {
   grid-column: 1 / -1;
 }
 
-.trip-grid .grip-card {
+.trip-grid .trip-card {
   margin: 0;
 }
 

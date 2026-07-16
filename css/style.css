@@ -149,7 +149,7 @@ input[type="submit"] {
 
 input[type="reset"] {
   background-color: #e0e0e0;
-  color: #37474f
+  color: #37474f;
 }
 
 input[type="submit"]:hover {

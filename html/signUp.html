@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입</title>
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <header>
@@ -86,11 +87,22 @@
           </p>
           <p>
             관심 분야 (중복 선택 가능): <br />
-            <label><input type="checkbox" name="interest" value="frontend"/>웹 프론트엔드 (Vue.js/HTML)</label
+            <label
+              ><input type="checkbox" name="interest" value="frontend" />웹
+              프론트엔드 (Vue.js/HTML)</label
             ><br />
-            <label><input type="checkbox" name="interest" value="uiux"/>UI/UX 디자인 표준</label><br />
-            <label><input type="checkbox" name="interest" value="backend"/>백엔드 & 데이터베이스</label><br />
-            <label><input type="checkbox" name="interest" value="devops"/>클라우드 & 인프라</label>
+            <label
+              ><input type="checkbox" name="interest" value="uiux" />UI/UX
+              디자인 표준</label
+            ><br />
+            <label
+              ><input type="checkbox" name="interest" value="backend" />백엔드 &
+              데이터베이스</label
+            ><br />
+            <label
+              ><input type="checkbox" name="interest" value="devops" />클라우드
+              & 인프라</label
+            >
           </p>
           <p>
             <label for="subscription">가입 경로: </label>
@@ -107,13 +119,16 @@
         <fieldset>
           <legend>자기소개</legend>
           <p>
-            <label for="userIntro">나를 표현하는 한 줄 소개 또는 가입 인사: </label><br>
+            <label for="userIntro"
+              >나를 표현하는 한 줄 소개 또는 가입 인사: </label
+            ><br />
             <textarea
               id="userIntro"
               name="userIntro"
               rows="5"
               cols="50"
-              placeholder="여기에 내용을 입력하세요 (최대 20자)"
+              maxlength="200"
+              placeholder="여기에 내용을 입력하세요 (최대 200자)"
             ></textarea>
           </p>
         </fieldset>

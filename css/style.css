@@ -63,6 +63,14 @@ video {
   border: 1px solid #a5d6a7;
   border-radius: 8px;
   background-color: #f1f8e9;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.trip-card:hover {
+  transform: translayeY(-6px);
+  box-shadow: 0 10px 20px rgba(27, 94, 32, 0.25);
 }
 
 table {
@@ -180,6 +188,17 @@ input[type="reset"]:hover {
   border-radius: 6px;
   background-color: #f1f8e9;
   text-align: center;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.shortcut-list a:hover {
+  color: white;
+  background-color: #2e7d32;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .content-layout {
@@ -264,5 +283,23 @@ input[type="reset"]:hover {
   video {
     max-width: 100%;
     height: auto;
+  }
+}
+
+.main-title {
+  animation: title-fade-in 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes title-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.85);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 }

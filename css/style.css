@@ -492,7 +492,7 @@ html[data-theme="dark"] .theme-toggle:hover .ui-icon {
 
 .profile-section dl {
   display: grid;
-  grid-template-columns: minmax(6rem, 0.28fr) 1fr;
+  grid-template-columns: minmax(5.5rem, 0.22fr) 1fr;
   text-align: left;
 }
 
@@ -502,7 +502,7 @@ html[data-theme="dark"] .theme-toggle:hover .ui-icon {
 }
 
 .profile-section dt {
-  padding-right: var(--space-3);
+  padding-right: var(--space-2);
   font-weight: 700;
 }
 
@@ -888,19 +888,19 @@ html[data-theme="dark"] .form-actions button[type="submit"]::before {
 .table-scroll {
   width: min(100%, 56rem);
   margin-inline: auto;
-  overflow-x: auto;
+  overflow-x: visible;
   border: var(--border);
   background: var(--color-surface);
   box-shadow: 0 0.5rem 1.5rem rgb(27 27 26 / 5%);
-  scrollbar-color: var(--color-line-strong) var(--color-paper);
 }
 
 .class-table {
   width: 100%;
-  min-width: 54rem;
+  min-width: 0;
   border-collapse: separate;
   border-spacing: 0;
   table-layout: fixed;
+  word-break: normal;
 }
 
 .class-table caption {
@@ -918,6 +918,7 @@ html[data-theme="dark"] .form-actions button[type="submit"]::before {
   border-left: 1px solid var(--color-line);
   border-bottom: 1px solid var(--color-line);
   line-height: 1.45;
+  overflow-wrap: anywhere;
   text-align: center;
   vertical-align: middle;
 }
@@ -1678,12 +1679,14 @@ html[data-theme="dark"] .home-update-card {
 }
 
 .trip-soundtrack__bar {
-  min-height: 5.5rem;
-  padding: var(--space-3) var(--space-4);
+  width: min(100%, 44rem);
+  min-height: 4.5rem;
+  margin-inline: auto;
+  padding: var(--space-2) var(--space-3);
   display: grid;
-  grid-template-columns: minmax(11rem, 0.4fr) minmax(0, 1fr);
+  grid-template-columns: minmax(9rem, 0.35fr) minmax(0, 1fr);
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
   border-block: var(--border);
   background: var(--color-surface);
 }
@@ -2071,15 +2074,171 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
    ================================================================ */
 
 [data-reveal] {
+  will-change: opacity, transform;
+}
+
+[data-reveal="heading"],
+[data-reveal="page-title"] {
+  opacity: 1;
+}
+
+[data-reveal="page-title"] > [data-reveal-piece],
+[data-reveal="heading"] > [data-reveal-piece],
+[data-reveal="panel"] > [data-reveal-piece],
+[data-reveal="media"] > [data-reveal-piece],
+.profile-section[data-reveal="panel"] [data-reveal-piece] {
+  opacity: 0;
+  transform: translate3d(0, 0.55rem, 0);
+}
+
+[data-reveal="page-title"] > [data-reveal-piece] {
+  transform: translate3d(0, 1.35rem, 0);
+}
+
+[data-reveal="panel"] {
+  opacity: 0;
+  transform: translate3d(0, 0.875rem, 0) scale(0.99);
+}
+
+[data-reveal="media"] {
+  opacity: 0;
+  transform: translate3d(0, 0.75rem, 0) scale(1.018);
+}
+
+[data-reveal="item"] {
+  opacity: 0;
+  transform: translate3d(-0.75rem, 0, 0);
+}
+
+[data-reveal="simple"] {
   opacity: 0;
   transform: translate3d(0, 0.875rem, 0);
 }
 
-[data-reveal].is-revealed {
-  animation: reveal-in 520ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms) both;
+[data-reveal="sequence"] [data-reveal-piece] {
+  opacity: 0;
+  transform: translate3d(0, 0.55rem, 0);
 }
 
-@keyframes reveal-in {
+[data-reveal="heading"].is-revealed > [data-reveal-piece] {
+  animation: assembly-heading-piece 620ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--reveal-delay, 0ms) + var(--piece-delay, 0ms)) both;
+}
+
+[data-reveal="page-title"].is-revealed > [data-reveal-piece] {
+  animation: assembly-page-title-piece 680ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--reveal-delay, 0ms) + var(--piece-delay, 0ms)) both;
+}
+
+[data-reveal="panel"].is-revealed {
+  animation: assembly-panel-in 760ms cubic-bezier(0.22, 1, 0.36, 1)
+    var(--reveal-delay, 0ms) both;
+}
+
+[data-reveal="panel"].is-revealed > [data-reveal-piece],
+[data-reveal="media"].is-revealed > [data-reveal-piece] {
+  animation: assembly-content-in 560ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--reveal-delay, 0ms) + 160ms + var(--piece-delay, 0ms)) both;
+}
+
+.profile-section[data-reveal="panel"].is-revealed [data-reveal-piece] {
+  animation: assembly-content-in 560ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--reveal-delay, 0ms) + var(--piece-delay, 0ms)) both;
+}
+
+[data-reveal="media"].is-revealed {
+  animation: assembly-media-in 820ms cubic-bezier(0.22, 1, 0.36, 1)
+    var(--reveal-delay, 0ms) both;
+}
+
+[data-reveal="item"].is-revealed {
+  animation: assembly-item-in 620ms cubic-bezier(0.22, 1, 0.36, 1)
+    var(--reveal-delay, 0ms) both;
+}
+
+[data-reveal="simple"].is-revealed {
+  animation: assembly-rise-in 620ms cubic-bezier(0.22, 1, 0.36, 1)
+    var(--reveal-delay, 0ms) both;
+}
+
+[data-reveal="sequence"].is-revealed [data-reveal-piece] {
+  animation: assembly-content-in 560ms cubic-bezier(0.22, 1, 0.36, 1)
+    calc(var(--reveal-delay, 0ms) + var(--piece-delay, 0ms)) both;
+}
+
+@keyframes assembly-heading-piece {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes assembly-page-title-piece {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.35rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes assembly-panel-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.875rem, 0) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes assembly-content-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.55rem, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes assembly-media-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0) scale(1.018);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes assembly-item-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-0.75rem, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes assembly-rise-in {
   from {
     opacity: 0;
     transform: translate3d(0, 0.875rem, 0);
@@ -2198,6 +2357,16 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
 
   .page-heading {
     margin-bottom: var(--space-4);
+  }
+
+  .class-table th,
+  .class-table td {
+    padding-inline: 0.45rem;
+  }
+
+  .class-table thead th:first-child,
+  .class-table tbody th {
+    width: 4.5rem;
   }
 
   .home-hero {
@@ -2326,7 +2495,18 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
   }
 
   .trip-soundtrack__bar {
-    padding: var(--space-3);
+    padding: var(--space-2);
+  }
+
+  .class-table th,
+  .class-table td {
+    padding: 0.55rem 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .class-table thead th:first-child,
+  .class-table tbody th {
+    width: 3.75rem;
   }
 
   .form-actions {

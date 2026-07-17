@@ -42,6 +42,28 @@ export const searchCities = async (cityName) => {
   return cities;
 };
 
+export const reverseGeocodeCoordinates = async (latitude, longitude) => {
+  const url = new URL("https://nominatim.openstreetmap.org/reverse");
+
+  url.searchParams.set("lat", latitude);
+  url.searchParams.set("lon", longitude);
+  url.searchParams.set("format", "jsonv2");
+  url.searchParams.set("addressdetails", "1");
+  url.searchParams.set("accept-language", "ko");
+  url.searchParams.set("zoom", "14");
+
+  await waitForSearchInterval();
+  lastCitySearchTime = Date.now();
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    throw new Error("현재 위치의 지역명 요청에 실패했습니다.");
+  }
+
+  return response.json();
+};
+
 export const fetchCurrentWeather = async (latitude, longitude) => {
   const url = new URL("https://api.open-meteo.com/v1/forecast");
 

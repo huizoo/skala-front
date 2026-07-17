@@ -8,28 +8,15 @@ const citySearchButton = citySearchForm.querySelector('button[type="submit"]');
 
 let cityResults = [];
 
-const searchIcon = `
-  <svg class="weather-status-icon ui-icon" aria-hidden="true" viewBox="0 0 24 24">
-    <circle cx="11" cy="11" r="8" />
-    <path d="m21 21-4.3-4.3" />
-  </svg>
-`;
+const setSearchButtonLoading = (isLoading) => {
+  citySearchButton.disabled = isLoading;
+  citySearchButton.classList.toggle("is-loading", isLoading);
+  citySearchButton.setAttribute("aria-busy", String(isLoading));
+};
 
-const cloudSunIcon = `
-  <svg class="weather-status-icon ui-icon" aria-hidden="true" viewBox="0 0 24 24">
-    <path d="M12 2v2" />
-    <path d="m4.93 4.93 1.42 1.42" />
-    <path d="M20 12h2" />
-    <path d="m19.07 4.93-1.42 1.42" />
-    <path d="M15.95 6.05A7 7 0 0 0 9 13" />
-    <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" />
-  </svg>
-`;
-
-const loadingMarkup = (message, icon) => `
+const loadingMarkup = (message) => `
   <p class="weather-loading">
     <span>${message}</span><span class="loading-dots" aria-hidden="true"></span>
-    ${icon}
   </p>
 `;
 
@@ -58,9 +45,9 @@ citySearchForm.addEventListener("submit", async (event) => {
   }
 
   weatherBox.hidden = false;
-  weatherBox.innerHTML = loadingMarkup("도시를 검색하는 중입니다", searchIcon);
+  weatherBox.innerHTML = loadingMarkup("도시를 검색하는 중입니다");
   citySelect.hidden = true;
-  citySearchButton.disabled = true;
+  setSearchButtonLoading(true);
 
   try {
     cityResults = await withMinimumDuration(searchCities(cityName));
@@ -95,7 +82,7 @@ citySearchForm.addEventListener("submit", async (event) => {
       <p>잠시 후 다시 시도해주세요. </p>
     `;
   } finally {
-    citySearchButton.disabled = false;
+    setSearchButtonLoading(false);
   }
 });
 
@@ -126,7 +113,6 @@ citySelect.addEventListener("change", async (event) => {
 
   weatherBox.innerHTML = loadingMarkup(
     `<strong>${cityName}</strong>의 날씨를 불러오는 중입니다`,
-    cloudSunIcon,
   );
 
   try {

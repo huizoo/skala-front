@@ -23,7 +23,7 @@
     </header>
 
     <div class="layout-container">
-      <main class="page-main">
+      <main class="page-main trip-main">
         <header class="page-heading">
           <p class="eyebrow">TRAVEL ARCHIVE</p>
           <h1>나의 여행 앨범</h1>
@@ -31,49 +31,94 @@
         </header>
 
         <section class="trip-soundtrack" aria-labelledby="soundtrack-title">
-          <div class="section-heading">
+          <div class="section-heading trip-soundtrack__intro">
             <p class="eyebrow">SOUNDTRACK</p>
             <h2 id="soundtrack-title">여행의 배경 음악</h2>
+            <p class="trip-section-description">
+              여행의 장면을 천천히 떠올리며 함께 듣는 음악입니다.
+            </p>
           </div>
-          <audio controls preload="metadata">
-            <source src="../media/music.mp3" type="audio/mpeg" />
-            브라우저가 오디오 재생을 지원하지 않습니다.
-          </audio>
+          <div class="trip-soundtrack__player">
+            <p class="eyebrow">NOW PLAYING</p>
+            <audio controls preload="metadata">
+              <source src="../media/music.mp3" type="audio/mpeg" />
+              브라우저가 오디오 재생을 지원하지 않습니다.
+            </audio>
+          </div>
         </section>
 
-        <section aria-labelledby="gallery-title">
+        <section class="trip-gallery" aria-labelledby="gallery-title">
           <div class="section-heading">
             <p class="eyebrow">PHOTO NOTES</p>
             <h2 id="gallery-title">여행 사진</h2>
+            <p class="trip-section-description">
+              각 도시에서 오래 기억하고 싶은 풍경을 세 장에 담았습니다.
+            </p>
           </div>
           <div class="trip-grid">
             <figure class="trip-card">
-              <img src="../media/리장.jpg" alt="리장 호도협(2025년)" />
-              <figcaption>리장 호도협 (2025년)</figcaption>
+              <img
+                src="../media/리장.jpg"
+                alt="리장 호도협의 깊고 웅장한 협곡"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <span class="trip-card__index">01</span>
+                <span class="trip-card__place">리장 호도협</span>
+                <time datetime="2025">2025</time>
+              </figcaption>
             </figure>
             <figure class="trip-card">
-              <img src="../media/세부.jpg" alt="세부 탑스힐(2024년)" />
-              <figcaption>세부 탑스힐 (2024년)</figcaption>
+              <img
+                src="../media/세부.jpg"
+                alt="세부 탑스힐에서 내려다본 도시 풍경"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <span class="trip-card__index">02</span>
+                <span class="trip-card__place">세부 탑스힐</span>
+                <time datetime="2024">2024</time>
+              </figcaption>
             </figure>
             <figure class="trip-card">
-              <img src="../media/홋카이도.jpg" alt="홋카이도 대설산(2025년)" />
-              <figcaption>홋카이도 대설산 (2025년)</figcaption>
+              <img
+                src="../media/홋카이도.jpg"
+                alt="홋카이도 대설산의 산과 자연 풍경"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <span class="trip-card__index">03</span>
+                <span class="trip-card__place">홋카이도 대설산</span>
+                <time datetime="2025">2025</time>
+              </figcaption>
             </figure>
           </div>
         </section>
 
-        <section aria-labelledby="vlog-title">
-          <div class="section-heading">
-            <p class="eyebrow">TRAVEL FILM</p>
-            <h2 id="vlog-title">나의 여행 브이로그</h2>
+        <section class="trip-vlog" aria-labelledby="vlog-title">
+          <div class="trip-vlog__layout">
+            <div class="section-heading trip-vlog__intro">
+              <p class="eyebrow">TRAVEL FILM</p>
+              <h2 id="vlog-title">나의 여행 브이로그</h2>
+              <p class="trip-section-description">
+                사진에 담기지 않은 리장의 움직임과 소리를 기록했습니다.
+              </p>
+            </div>
+            <figure class="trip-card trip-card--video">
+              <video controls preload="metadata">
+                <source src="../media/video.mp4" type="video/mp4" />
+                브라우저가 동영상 재생을 지원하지 않습니다.
+              </video>
+              <figcaption>
+                <span class="trip-card__index">FILM 01</span>
+                <span class="trip-card__place">리장의 아름다운 풍경</span>
+                <time datetime="2025">2025</time>
+              </figcaption>
+            </figure>
           </div>
-          <figure class="trip-card trip-card--video">
-            <video controls preload="metadata">
-              <source src="../media/video.mp4" type="video/mp4" />
-              브라우저가 동영상 재생을 지원하지 않습니다.
-            </video>
-            <figcaption>리장의 아름다운 음악</figcaption>
-          </figure>
         </section>
       </main>
     </div>

@@ -973,14 +973,60 @@ a.site-brand:hover {
    10. TRIP PAGE — trip-card never affects unrelated cards.
    ================================================================ */
 
+.trip-main {
+  max-width: 68rem;
+}
+
+.trip-section-description {
+  max-width: 34rem;
+  margin: var(--space-2) auto 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+}
+
 .trip-soundtrack {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
+  align-items: stretch;
+  overflow: hidden;
+  border-block: 1px solid var(--color-line-strong);
+  background: rgb(255 253 248 / 40%);
+}
+
+.trip-soundtrack__intro {
+  margin: 0;
   padding: var(--space-4);
-  border: var(--border);
-  background: rgb(255 253 248 / 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.trip-soundtrack__intro .trip-section-description {
+  margin-inline: 0;
+}
+
+.trip-soundtrack__player {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-2);
+  border-left: var(--border);
+  background: var(--color-surface);
+}
+
+.trip-soundtrack__player .eyebrow {
+  text-align: left;
 }
 
 .trip-soundtrack audio {
   width: 100%;
+}
+
+.trip-gallery {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line-strong);
 }
 
 .trip-grid {
@@ -1018,17 +1064,71 @@ a.site-brand:hover {
 
 .trip-card video {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   background: var(--color-ink);
 }
 
 .trip-card figcaption {
+  min-height: 4rem;
   padding: var(--space-2);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-2);
   color: var(--color-muted);
+  font-size: var(--font-size-xs);
+  text-align: left;
+}
+
+.trip-card__index {
+  color: var(--color-accent-dark);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.trip-card__place {
+  overflow: hidden;
+  color: var(--color-ink);
   font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trip-card figcaption time {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.05em;
+}
+
+.trip-vlog {
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--color-line-strong);
+}
+
+.trip-vlog__layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.6fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: clamp(var(--space-4), 5vw, var(--space-6));
+}
+
+.trip-vlog__intro {
+  margin: 0;
+  text-align: left;
+}
+
+.trip-vlog__intro .trip-section-description {
+  margin-inline: 0;
 }
 
 .trip-card--video {
-  max-width: 60rem;
+  width: 100%;
+  max-width: none;
+}
+
+.trip-card--video:hover {
+  transform: none;
 }
 
 /* ================================================================
@@ -1108,6 +1208,26 @@ a.site-brand:hover {
 
   .utility-grid .home-tools-panel {
     grid-column: 1 / -1;
+    border-top: var(--border);
+    border-left: 0;
+  }
+
+  .trip-soundtrack,
+  .trip-vlog__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-soundtrack__intro,
+  .trip-vlog__intro {
+    text-align: center;
+  }
+
+  .trip-soundtrack__intro .trip-section-description,
+  .trip-vlog__intro .trip-section-description {
+    margin-inline: auto;
+  }
+
+  .trip-soundtrack__player {
     border-top: var(--border);
     border-left: 0;
   }
@@ -1215,8 +1335,12 @@ a.site-brand:hover {
 
 @media (max-width: 30rem) {
   .signup-form fieldset,
-  .trip-soundtrack,
   .utility-grid article {
+    padding: var(--space-3);
+  }
+
+  .trip-soundtrack__intro,
+  .trip-soundtrack__player {
     padding: var(--space-3);
   }
 

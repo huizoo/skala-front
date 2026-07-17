@@ -1,10 +1,33 @@
-export const searchCities = async (cityName) => {
-  const url = new URL("https://geocoding-api.open-meteo.com/v1/search");
+const citySearchCache = new Map();
+let lastCitySearchTime = 0;
 
-  url.searchParams.set("name", cityName);
-  url.searchParams.set("count", "10");
-  url.searchParams.set("language", "ko");
-  url.searchParams.set("format", "json");
+const waitForSearchInterval = async () => {
+  const elapsedTime = Date.now() - lastCitySearchTime;
+  const remainingTime = 1000 - elapsedTime;
+
+  if (remainingTime > 0) {
+    await new Promise((resolve) => setTimeout(resolve, remainingTime));
+  }
+};
+
+export const searchCities = async (cityName) => {
+  const searchQuery = cityName.trim().replace(/\s+/g, " ");
+
+  if (citySearchCache.has(searchQuery)) {
+    return citySearchCache.get(searchQuery);
+  }
+
+  const url = new URL("https://nominatim.openstreetmap.org/search");
+
+  url.searchParams.set("q", searchQuery);
+  url.searchParams.set("format", "jsonv2");
+  url.searchParams.set("addressdetails", "1");
+  url.searchParams.set("limit", "10");
+  url.searchParams.set("accept-language", "ko");
+  url.searchParams.set("featureType", "city");
+
+  await waitForSearchInterval();
+  lastCitySearchTime = Date.now();
 
   const response = await fetch(url);
 
@@ -12,9 +35,11 @@ export const searchCities = async (cityName) => {
     throw new Error("도시 검색 요청에 실패했습니다.");
   }
 
-  const data = await response.json();
+  const cities = await response.json();
 
-  return data.results ?? [];
+  citySearchCache.set(searchQuery, cities);
+
+  return cities;
 };
 
 export const fetchCurrentWeather = async (latitude, longitude) => {

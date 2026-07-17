@@ -30,112 +30,104 @@
           <p>SKALA-FRONT 회원가입을 환영합니다.</p>
         </header>
 
-        <form class="signup-form" action="signUpResult.html" method="get">
+        <form class="signup-form" action="signUpResult.html" method="get" novalidate>
+          <p class="form-required-note"><span aria-hidden="true">*</span> 표시는 필수 입력 항목입니다.</p>
+
           <fieldset>
-            <legend>계정 정보</legend>
+            <legend><span>01</span> 계정 정보</legend>
+            <p class="fieldset-description">로그인과 안내에 사용할 기본 정보를 입력해주세요.</p>
+            <div class="form-grid form-grid--two">
             <div class="form-field">
-              <label for="userId">아이디</label>
+              <label for="userId">아이디 <span class="required-mark" aria-label="필수">*</span></label>
               <input
                 type="text"
                 id="userId"
                 name="userId"
                 minlength="4"
                 maxlength="15"
+                pattern="[A-Za-z0-9]{4,15}"
                 placeholder="4~15자 영문/숫자"
                 autocomplete="username"
+                aria-describedby="userId-hint userId-error"
                 required
               />
-              <small class="form-hint">필수 · 4~15자 영문 또는 숫자</small>
+              <small class="form-hint" id="userId-hint">공백 없이 영문과 숫자만 사용할 수 있습니다.</small>
+              <small class="form-error" id="userId-error" aria-live="polite"></small>
             </div>
             <div class="form-field">
-              <label for="userPw">비밀번호</label>
-              <input
-                type="password"
-                id="userPw"
-                name="userPw"
-                minlength="8"
-                placeholder="8자 이상 입력"
-                autocomplete="new-password"
-                required
-              />
-              <small class="form-hint">필수 · 8자 이상</small>
+              <label for="userPw">비밀번호 <span class="required-mark" aria-label="필수">*</span></label>
+              <div class="password-field">
+                <input
+                  type="password"
+                  id="userPw"
+                  name="userPw"
+                  minlength="8"
+                  placeholder="8자 이상 입력"
+                  autocomplete="new-password"
+                  aria-describedby="userPw-hint userPw-error"
+                  required
+                />
+                <button class="password-toggle" type="button" aria-label="비밀번호 표시" aria-pressed="false">보기</button>
+              </div>
+              <small class="form-hint" id="userPw-hint">8자 이상 입력해주세요.</small>
+              <small class="form-error" id="userPw-error" aria-live="polite"></small>
+            </div>
             </div>
             <div class="form-field">
-              <label for="userEmail">이메일</label>
+              <label for="userEmail">이메일 <span class="required-mark" aria-label="필수">*</span></label>
               <div class="form-email">
-                <input type="text" id="userEmail" name="userEmail" placeholder="example" autocomplete="email" />
+                <input type="text" id="userEmail" name="userEmail" placeholder="example" autocomplete="email" aria-describedby="userEmail-hint userEmail-error" required />
                 <span aria-hidden="true">@</span>
                 <select id="emailDomain" name="emailDomain" aria-label="이메일 도메인">
-                  <option value="direct">직접 입력</option>
                   <option value="naver.com">naver.com</option>
                   <option value="gmail.com">gmail.com</option>
                   <option value="daum.net">daum.net</option>
+                  <option value="direct">직접 입력</option>
                 </select>
+                <input type="text" id="emailCustomDomain" name="emailCustomDomain" placeholder="도메인 직접 입력" aria-label="이메일 도메인 직접 입력" aria-describedby="emailCustomDomain-error" pattern="[A-Za-z0-9.-]+\.[A-Za-z]{2,}" hidden disabled />
               </div>
+              <small class="form-hint" id="userEmail-hint">자주 확인하는 이메일 주소를 입력해주세요.</small>
+              <small class="form-error" id="userEmail-error" aria-live="polite"></small>
+              <small class="form-error" id="emailCustomDomain-error" aria-live="polite"></small>
             </div>
           </fieldset>
 
           <fieldset>
-            <legend>개인 프로필 정보</legend>
+            <legend><span>02</span> 프로필 정보</legend>
+            <p class="fieldset-description">나중에 변경할 수 있는 선택 정보입니다.</p>
+            <div class="form-grid form-grid--two">
             <div class="form-field">
-              <label for="userName">이름</label>
-              <input type="text" id="userName" name="userName" autocomplete="name" />
+              <label for="userName">이름 <span class="required-mark" aria-label="필수">*</span></label>
+              <input type="text" id="userName" name="userName" autocomplete="name" aria-describedby="userName-error" required />
+              <small class="form-error" id="userName-error" aria-live="polite"></small>
             </div>
             <div class="form-field">
-              <label for="userBirth">생년월일</label>
-              <input type="date" id="userBirth" name="userBirth" />
+              <label for="userBirth">생년월일 <span class="required-mark" aria-label="필수">*</span></label>
+              <input type="date" id="userBirth" name="userBirth" aria-describedby="userBirth-error" required />
+              <small class="form-error" id="userBirth-error" aria-live="polite"></small>
+            </div>
             </div>
             <div class="form-field">
-              <span class="form-label">성별</span>
-              <div class="choice-group">
-              <label
-                ><input
-                  type="radio"
-                  name="gender"
-                  value="male"
-                  checked
-                />남성</label
-              >
-              <label
-                ><input type="radio" name="gender" value="female" />여성</label
-              >
-              <label
-                ><input
-                  type="radio"
-                  name="gender"
-                  value="none"
-                />선택안함</label
-              >
+              <span class="form-label">성별 <span class="required-mark" aria-label="필수">*</span></span>
+              <div class="choice-group choice-group--cards choice-group--gender">
+                <label><input type="radio" id="genderMale" name="gender" value="male" data-error-target="gender-error" required /><span>남성</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
+                <label><input type="radio" id="genderFemale" name="gender" value="female" data-error-target="gender-error" required /><span>여성</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
+              </div>
+              <small class="form-error" id="gender-error" aria-live="polite"></small>
+            </div>
+            <div class="form-field">
+              <span class="form-label">관심 분야 <span class="optional-mark">복수 선택</span></span>
+              <div class="choice-group choice-group--cards choice-group--interests">
+                <label><input type="checkbox" name="interest" value="frontend" /><span>웹 프론트엔드</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
+                <label><input type="checkbox" name="interest" value="uiux" /><span>UI/UX 디자인</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
+                <label><input type="checkbox" name="interest" value="backend" /><span>백엔드·데이터베이스</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
+                <label><input type="checkbox" name="interest" value="devops" /><span>클라우드·인프라</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
               </div>
             </div>
             <div class="form-field">
-              <span class="form-label">관심 분야 <small>(중복 선택 가능)</small></span>
-              <div class="choice-group choice-group--stacked">
-              <label
-                ><input type="checkbox" name="interest" value="frontend" />웹
-                프론트엔드 (Vue.js/HTML)</label
-              >
-              <label
-                ><input type="checkbox" name="interest" value="uiux" />UI/UX
-                디자인 표준</label
-              >
-              <label
-                ><input type="checkbox" name="interest" value="backend" />백엔드
-                & 데이터베이스</label
-              >
-              <label
-                ><input
-                  type="checkbox"
-                  name="interest"
-                  value="devops"
-                />클라우드 & 인프라</label
-              >
-              </div>
-            </div>
-            <div class="form-field">
-              <label for="subscription">가입 경로</label>
+              <label for="subscription">가입 경로 <span class="optional-mark">선택</span></label>
               <select id="subscription" name="subscription">
-                <option value="">-- 선택해주세요 --</option>
+                <option value="">가입 경로를 선택해주세요</option>
                 <option value="SNS">SNS</option>
                 <option value="카페">카페</option>
                 <option value="검색">검색</option>
@@ -146,23 +138,25 @@
           </fieldset>
 
           <fieldset>
-            <legend>자기소개</legend>
+            <legend><span>03</span> 자기소개</legend>
+            <p class="fieldset-description">간단한 인사나 관심사를 자유롭게 남겨주세요.</p>
             <div class="form-field">
-              <label for="userIntro"
-                >나를 표현하는 한 줄 소개 또는 가입 인사</label
-              >
+              <label for="userIntro">한 줄 소개 <span class="optional-mark">선택</span></label>
               <textarea
                 id="userIntro"
                 name="userIntro"
                 rows="5"
                 maxlength="200"
-                placeholder="여기에 내용을 입력하세요 (최대 200자)"
+                placeholder="예: 사용자 경험과 프론트엔드 개발에 관심이 있습니다."
+                aria-describedby="intro-count"
               ></textarea>
+              <small class="form-counter" id="intro-count"><span>0</span> / 200자</small>
             </div>
           </fieldset>
 
+          <p class="form-submit-note">입력한 내용을 확인한 뒤 회원가입을 완료해주세요.</p>
           <div class="form-actions">
-            <input type="submit" value="동의하고 회원가입" />
+            <input type="submit" value="회원가입 완료" />
             <input type="reset" value="다시 작성" />
           </div>
         </form>
@@ -178,6 +172,7 @@
         </div>
       </div>
     </footer>
+    <script src="../script/signUpForm.js"></script>
     <script src="../script/backToTop.js"></script>
   </body>
 </html>

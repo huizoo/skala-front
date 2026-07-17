@@ -14,10 +14,11 @@ citySearchForm.addEventListener("submit", async (event) => {
   const cityName = citySearchInput.value.trim();
 
   if (cityName.length === 0) {
-    weatherBox.innerHTML = "<p>도시 이름을 입력해주세요.</p>";
+    weatherBox.hidden = true;
     return;
   }
 
+  weatherBox.hidden = false;
   weatherBox.innerHTML = "<p>도시를 검색하는 중입니다... 🔍</p>";
   citySelect.hidden = true;
   citySearchButton.disabled = true;

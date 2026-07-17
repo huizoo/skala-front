@@ -31,15 +31,18 @@
         </header>
 
         <section class="trip-soundtrack" aria-labelledby="soundtrack-title">
-          <div class="section-heading trip-soundtrack__intro">
+          <div class="section-heading">
             <p class="eyebrow">SOUNDTRACK</p>
             <h2 id="soundtrack-title">여행의 배경 음악</h2>
             <p class="trip-section-description">
               여행의 장면을 천천히 떠올리며 함께 듣는 음악입니다.
             </p>
           </div>
-          <div class="trip-soundtrack__player">
-            <p class="eyebrow">NOW PLAYING</p>
+          <div class="trip-soundtrack__bar">
+            <div class="trip-soundtrack__meta">
+              <p class="eyebrow">NOW PLAYING</p>
+              <p>Travel Memories</p>
+            </div>
             <audio controls preload="metadata">
               <source src="../media/music.mp3" type="audio/mpeg" />
               브라우저가 오디오 재생을 지원하지 않습니다.
@@ -57,12 +60,21 @@
           </div>
           <div class="trip-grid">
             <figure class="trip-card">
-              <img
-                src="../media/리장.jpg"
-                alt="리장 호도협의 깊고 웅장한 협곡"
-                loading="lazy"
-                decoding="async"
-              />
+              <button
+                class="trip-card__preview"
+                type="button"
+                data-lightbox-src="../media/리장.jpg"
+                data-lightbox-title="리장 호도협"
+                data-lightbox-year="2025"
+                aria-label="리장 호도협 사진 크게 보기"
+              >
+                <img
+                  src="../media/리장.jpg"
+                  alt="리장 호도협의 깊고 웅장한 협곡"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
               <figcaption>
                 <span class="trip-card__index">01</span>
                 <span class="trip-card__place">리장 호도협</span>
@@ -70,12 +82,21 @@
               </figcaption>
             </figure>
             <figure class="trip-card">
-              <img
-                src="../media/세부.jpg"
-                alt="세부 탑스힐에서 내려다본 도시 풍경"
-                loading="lazy"
-                decoding="async"
-              />
+              <button
+                class="trip-card__preview"
+                type="button"
+                data-lightbox-src="../media/세부.jpg"
+                data-lightbox-title="세부 탑스힐"
+                data-lightbox-year="2024"
+                aria-label="세부 탑스힐 사진 크게 보기"
+              >
+                <img
+                  src="../media/세부.jpg"
+                  alt="세부 탑스힐에서 내려다본 도시 풍경"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
               <figcaption>
                 <span class="trip-card__index">02</span>
                 <span class="trip-card__place">세부 탑스힐</span>
@@ -83,12 +104,21 @@
               </figcaption>
             </figure>
             <figure class="trip-card">
-              <img
-                src="../media/홋카이도.jpg"
-                alt="홋카이도 대설산의 산과 자연 풍경"
-                loading="lazy"
-                decoding="async"
-              />
+              <button
+                class="trip-card__preview"
+                type="button"
+                data-lightbox-src="../media/홋카이도.jpg"
+                data-lightbox-title="홋카이도 대설산"
+                data-lightbox-year="2025"
+                aria-label="홋카이도 대설산 사진 크게 보기"
+              >
+                <img
+                  src="../media/홋카이도.jpg"
+                  alt="홋카이도 대설산의 산과 자연 풍경"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
               <figcaption>
                 <span class="trip-card__index">03</span>
                 <span class="trip-card__place">홋카이도 대설산</span>
@@ -99,29 +129,58 @@
         </section>
 
         <section class="trip-vlog" aria-labelledby="vlog-title">
-          <div class="trip-vlog__layout">
-            <div class="section-heading trip-vlog__intro">
-              <p class="eyebrow">TRAVEL FILM</p>
-              <h2 id="vlog-title">나의 여행 브이로그</h2>
-              <p class="trip-section-description">
-                사진에 담기지 않은 리장의 움직임과 소리를 기록했습니다.
-              </p>
-            </div>
-            <figure class="trip-card trip-card--video">
-              <video controls preload="metadata">
-                <source src="../media/video.mp4" type="video/mp4" />
-                브라우저가 동영상 재생을 지원하지 않습니다.
-              </video>
-              <figcaption>
-                <span class="trip-card__index">FILM 01</span>
-                <span class="trip-card__place">리장의 아름다운 풍경</span>
-                <time datetime="2025">2025</time>
-              </figcaption>
-            </figure>
+          <div class="section-heading">
+            <p class="eyebrow">TRAVEL FILM</p>
+            <h2 id="vlog-title">나의 여행 브이로그</h2>
+            <p class="trip-section-description">
+              사진에 담기지 않은 리장의 움직임과 소리를 기록했습니다.
+            </p>
           </div>
+          <figure class="trip-card trip-card--video">
+            <video controls preload="metadata">
+              <source src="../media/video.mp4" type="video/mp4" />
+              브라우저가 동영상 재생을 지원하지 않습니다.
+            </video>
+            <figcaption>
+              <span class="trip-card__index">FILM 01</span>
+              <span class="trip-card__place">리장의 아름다운 풍경</span>
+              <time datetime="2025">2025</time>
+            </figcaption>
+          </figure>
         </section>
       </main>
     </div>
+
+    <dialog
+      class="trip-lightbox"
+      id="trip-lightbox"
+      aria-labelledby="trip-lightbox-title"
+    >
+      <div class="trip-lightbox__frame">
+        <button class="trip-lightbox__close" type="button">닫기</button>
+        <button
+          class="trip-lightbox__nav trip-lightbox__nav--previous"
+          type="button"
+          aria-label="이전 사진"
+        >
+          이전
+        </button>
+        <figure class="trip-lightbox__figure">
+          <img id="trip-lightbox-image" alt="" />
+          <figcaption>
+            <span id="trip-lightbox-title"></span>
+            <time id="trip-lightbox-year"></time>
+          </figcaption>
+        </figure>
+        <button
+          class="trip-lightbox__nav trip-lightbox__nav--next"
+          type="button"
+          aria-label="다음 사진"
+        >
+          다음
+        </button>
+      </div>
+    </dialog>
 
     <footer class="site-footer">
       <div class="layout-container site-footer__inner">
@@ -132,5 +191,6 @@
         </div>
       </div>
     </footer>
+    <script src="../script/tripLightbox.js"></script>
   </body>
 </html>

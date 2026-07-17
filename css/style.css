@@ -478,7 +478,7 @@ a.site-brand:hover {
 
 .signup-form textarea {
   min-height: 8rem;
-  resize: vertical;
+  resize: none;
 }
 
 .signup-form input:focus,
@@ -985,39 +985,33 @@ a.site-brand:hover {
 }
 
 .trip-soundtrack {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line-strong);
+}
+
+.trip-soundtrack__bar {
+  min-height: 5.5rem;
+  padding: var(--space-3) var(--space-4);
   display: grid;
-  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.2fr);
-  align-items: stretch;
-  overflow: hidden;
-  border-block: 1px solid var(--color-line-strong);
-  background: rgb(255 253 248 / 40%);
-}
-
-.trip-soundtrack__intro {
-  margin: 0;
-  padding: var(--space-4);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-}
-
-.trip-soundtrack__intro .trip-section-description {
-  margin-inline: 0;
-}
-
-.trip-soundtrack__player {
-  padding: var(--space-4);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-2);
-  border-left: var(--border);
+  grid-template-columns: minmax(11rem, 0.4fr) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-4);
+  border-block: var(--border);
   background: var(--color-surface);
 }
 
-.trip-soundtrack__player .eyebrow {
+.trip-soundtrack__meta {
   text-align: left;
+}
+
+.trip-soundtrack__meta .eyebrow {
+  margin-bottom: 0.2rem;
+}
+
+.trip-soundtrack__meta > p:last-child {
+  color: var(--color-ink);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
 }
 
 .trip-soundtrack audio {
@@ -1041,6 +1035,23 @@ a.site-brand:hover {
   border: var(--border);
   background: var(--color-surface);
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.trip-card__preview {
+  width: 100%;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.trip-card__preview:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline-offset: -4px;
 }
 
 .trip-card:hover {
@@ -1102,33 +1113,112 @@ a.site-brand:hover {
 }
 
 .trip-vlog {
-  padding-block: var(--space-4);
-  border-block: 1px solid var(--color-line-strong);
-}
-
-.trip-vlog__layout {
-  display: grid;
-  grid-template-columns: minmax(14rem, 0.6fr) minmax(0, 1.4fr);
-  align-items: center;
-  gap: clamp(var(--space-4), 5vw, var(--space-6));
-}
-
-.trip-vlog__intro {
-  margin: 0;
-  text-align: left;
-}
-
-.trip-vlog__intro .trip-section-description {
-  margin-inline: 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line-strong);
 }
 
 .trip-card--video {
-  width: 100%;
+  width: min(100%, 60rem);
   max-width: none;
+  margin-inline: auto;
 }
 
 .trip-card--video:hover {
   transform: none;
+}
+
+.is-lightbox-open {
+  overflow: hidden;
+}
+
+.trip-lightbox {
+  width: min(calc(100% - 2rem), 72rem);
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  color: var(--color-surface);
+  background: transparent;
+}
+
+.trip-lightbox[open] {
+  animation: lightbox-enter 220ms ease-out both;
+}
+
+.trip-lightbox::backdrop {
+  background: rgb(17 17 16 / 86%);
+  backdrop-filter: blur(4px);
+}
+
+.trip-lightbox__frame {
+  position: relative;
+  padding: 3.5rem 4.5rem var(--space-2);
+  background: var(--color-ink);
+  box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 30%);
+}
+
+.trip-lightbox__figure img {
+  width: 100%;
+  height: min(72dvh, 48rem);
+  object-fit: contain;
+  background: #111;
+}
+
+.trip-lightbox__figure figcaption {
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  color: #c9c4bc;
+  font-size: var(--font-size-sm);
+}
+
+.trip-lightbox__figure figcaption > span {
+  color: var(--color-surface);
+  font-weight: 700;
+}
+
+.trip-lightbox__close,
+.trip-lightbox__nav {
+  border: 1px solid rgb(255 255 255 / 36%);
+  color: var(--color-surface);
+  background: rgb(27 27 26 / 78%);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.trip-lightbox__close:hover,
+.trip-lightbox__nav:hover {
+  border-color: var(--color-surface);
+  color: var(--color-ink);
+  background: var(--color-surface);
+}
+
+.trip-lightbox__close {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  z-index: 1;
+  padding: 0.45rem 0.75rem;
+}
+
+.trip-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  padding: 0.65rem 0.75rem;
+  transform: translateY(-50%);
+}
+
+.trip-lightbox__nav--previous {
+  left: var(--space-2);
+}
+
+.trip-lightbox__nav--next {
+  right: var(--space-2);
 }
 
 /* ================================================================
@@ -1179,6 +1269,18 @@ a.site-brand:hover {
   }
 }
 
+@keyframes lightbox-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* ================================================================
    13. RESPONSIVE RULES
    Parent layout changes precede child adjustments at each breakpoint.
@@ -1212,25 +1314,6 @@ a.site-brand:hover {
     border-left: 0;
   }
 
-  .trip-soundtrack,
-  .trip-vlog__layout {
-    grid-template-columns: 1fr;
-  }
-
-  .trip-soundtrack__intro,
-  .trip-vlog__intro {
-    text-align: center;
-  }
-
-  .trip-soundtrack__intro .trip-section-description,
-  .trip-vlog__intro .trip-section-description {
-    margin-inline: auto;
-  }
-
-  .trip-soundtrack__player {
-    border-top: var(--border);
-    border-left: 0;
-  }
 }
 
 @media (max-width: 49.125rem) {
@@ -1304,6 +1387,40 @@ a.site-brand:hover {
     grid-template-columns: 1fr;
   }
 
+  .trip-soundtrack__bar {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .trip-soundtrack__meta {
+    text-align: center;
+  }
+
+  .trip-lightbox {
+    width: min(calc(100% - 1rem), 72rem);
+    max-height: calc(100dvh - 1rem);
+  }
+
+  .trip-lightbox__frame {
+    padding: 3.5rem var(--space-1) var(--space-1);
+  }
+
+  .trip-lightbox__figure img {
+    height: 68dvh;
+  }
+
+  .trip-lightbox__figure figcaption {
+    padding-inline: var(--space-1);
+  }
+
+  .trip-lightbox__nav--previous {
+    left: var(--space-1);
+  }
+
+  .trip-lightbox__nav--next {
+    right: var(--space-1);
+  }
+
   .profile-section dl {
     grid-template-columns: 1fr;
   }
@@ -1339,8 +1456,7 @@ a.site-brand:hover {
     padding: var(--space-3);
   }
 
-  .trip-soundtrack__intro,
-  .trip-soundtrack__player {
+  .trip-soundtrack__bar {
     padding: var(--space-3);
   }
 

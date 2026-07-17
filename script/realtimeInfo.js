@@ -8,6 +8,45 @@ const citySearchButton = citySearchForm.querySelector('button[type="submit"]');
 
 let cityResults = [];
 
+const searchIcon = `
+  <svg class="weather-status-icon ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.3-4.3" />
+  </svg>
+`;
+
+const cloudSunIcon = `
+  <svg class="weather-status-icon ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+    <path d="M12 2v2" />
+    <path d="m4.93 4.93 1.42 1.42" />
+    <path d="M20 12h2" />
+    <path d="m19.07 4.93-1.42 1.42" />
+    <path d="M15.95 6.05A7 7 0 0 0 9 13" />
+    <path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z" />
+  </svg>
+`;
+
+const loadingMarkup = (message, icon) => `
+  <p class="weather-loading">
+    <span>${message}</span><span class="loading-dots" aria-hidden="true"></span>
+    ${icon}
+  </p>
+`;
+
+const withMinimumDuration = async (request, minimumDuration = 1500) => {
+  const startedAt = Date.now();
+
+  try {
+    return await request;
+  } finally {
+    const remainingTime = minimumDuration - (Date.now() - startedAt);
+
+    if (remainingTime > 0) {
+      await new Promise((resolve) => window.setTimeout(resolve, remainingTime));
+    }
+  }
+};
+
 citySearchForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -19,12 +58,12 @@ citySearchForm.addEventListener("submit", async (event) => {
   }
 
   weatherBox.hidden = false;
-  weatherBox.innerHTML = "<p>도시를 검색하는 중입니다... 🔍</p>";
+  weatherBox.innerHTML = loadingMarkup("도시를 검색하는 중입니다", searchIcon);
   citySelect.hidden = true;
   citySearchButton.disabled = true;
 
   try {
-    cityResults = await searchCities(cityName);
+    cityResults = await withMinimumDuration(searchCities(cityName));
 
     if (cityResults.length === 0) {
       weatherBox.innerHTML = "<p>검색 결과가 없습니다.</p>";
@@ -85,12 +124,13 @@ citySelect.addEventListener("change", async (event) => {
     city.address?.village ??
     cityName;
 
-  weatherBox.innerHTML = `
-    <p><strong>${cityName}</strong>의 날씨를 불러오는 중입니다... ⏳</p>
-  `;
+  weatherBox.innerHTML = loadingMarkup(
+    `<strong>${cityName}</strong>의 날씨를 불러오는 중입니다`,
+    cloudSunIcon,
+  );
 
   try {
-    const weatherData = await fetchCurrentWeather(city.lat, city.lon);
+    const weatherData = await withMinimumDuration(fetchCurrentWeather(city.lat, city.lon));
 
     const current = weatherData.current;
     const units = weatherData.current_units;

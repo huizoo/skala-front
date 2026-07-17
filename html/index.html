@@ -59,13 +59,29 @@
                     추가했습니다. 이제 소리와 영상으로 여행을 추억할 수
                     있습니다.
                   </p>
+                  <a class="home-update-card__link" href="./myTrip.html#travel-film">
+                    <span>영상 보러가기</span>
+                    <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M5 12h14" />
+                      <path d="m13 6 6 6-6 6" />
+                    </svg>
+                  </a>
                   <time datetime="2026-07-15">2026 / 07 / 15</time>
                 </article>
                 <article class="home-photo-card">
-                  <img
-                    src="../media/리장.jpg"
-                    alt="중국 리장 호도협의의 웅장한 협곡 모습(2025년 촬영)"
-                  />
+                  <button
+                    class="home-photo-card__preview trip-card__preview"
+                    type="button"
+                    data-lightbox-src="../media/리장.jpg"
+                    data-lightbox-title="리장, 호도협"
+                    data-lightbox-year="2025"
+                    aria-label="리장 호도협 사진 크게 보기"
+                  >
+                    <img
+                      src="../media/리장.jpg"
+                      alt="중국 리장 호도협의 웅장한 협곡 모습(2025년 촬영)"
+                    />
+                  </button>
                   <div>
                     <p class="eyebrow">BEST CUT OF THE MONTH</p>
                     <h3>리장, 호도협</h3>
@@ -79,7 +95,7 @@
           <aside class="home-utility" aria-labelledby="utility-title">
             <div class="section-heading section-heading--compact">
               <p class="eyebrow">UTILITY</p>
-              <h2 id="utility-title">정보와 도구</h2>
+              <h2 class="visually-hidden" id="utility-title">정보와 도구</h2>
             </div>
             <div class="utility-grid">
               <article class="home-location-panel">
@@ -159,6 +175,23 @@
       </main>
     </div>
 
+    <dialog
+      class="trip-lightbox trip-lightbox--single"
+      id="trip-lightbox"
+      aria-labelledby="trip-lightbox-title"
+    >
+      <div class="trip-lightbox__frame">
+        <button class="trip-lightbox__close" type="button">닫기</button>
+        <figure class="trip-lightbox__figure">
+          <img id="trip-lightbox-image" alt="" />
+          <figcaption>
+            <span id="trip-lightbox-title"></span>
+            <time id="trip-lightbox-year"></time>
+          </figcaption>
+        </figure>
+      </div>
+    </dialog>
+
     <footer class="site-footer">
       <div class="layout-container site-footer__inner">
         <p class="site-brand">HEEJU<span>.</span></p>
@@ -172,6 +205,7 @@
     <script src="../script/grade.js"></script>
     <script src="../script/bag.js"></script>
     <script type="module" src="../script/realtimeInfo.js"></script>
+    <script src="../script/tripLightbox.js"></script>
     <script src="../script/backToTop.js"></script>
   </body>
 </html>

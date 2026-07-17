@@ -42,8 +42,8 @@ tripPreviewButtons.forEach((button, index) => {
 });
 
 tripLightboxClose.addEventListener("click", () => tripLightbox.close());
-tripLightboxPrevious.addEventListener("click", () => moveTripImage(-1));
-tripLightboxNext.addEventListener("click", () => moveTripImage(1));
+tripLightboxPrevious?.addEventListener("click", () => moveTripImage(-1));
+tripLightboxNext?.addEventListener("click", () => moveTripImage(1));
 
 tripLightbox.addEventListener("click", (event) => {
   if (event.target === tripLightbox) {
@@ -52,6 +52,8 @@ tripLightbox.addEventListener("click", (event) => {
 });
 
 tripLightbox.addEventListener("keydown", (event) => {
+  if (tripPreviewButtons.length < 2) return;
+
   if (event.key === "ArrowLeft") {
     moveTripImage(-1);
   } else if (event.key === "ArrowRight") {

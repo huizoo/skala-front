@@ -13,8 +13,6 @@ const validationMessages = {
   emailCustomDomain: "올바른 도메인을 입력해주세요. 예: example.com",
   userName: "이름을 입력해주세요.",
   userBirth: "생년월일을 선택해주세요.",
-  genderMale: "성별을 선택해주세요.",
-  genderFemale: "성별을 선택해주세요.",
 };
 
 const showFieldError = (input) => {
@@ -28,8 +26,7 @@ const showFieldError = (input) => {
   input.setAttribute("aria-invalid", String(!isValid));
 };
 
-signupForm.querySelectorAll("[required]").forEach((input) => {
-  input.addEventListener("blur", () => showFieldError(input));
+signupForm.querySelectorAll("input, select, textarea").forEach((input) => {
   input.addEventListener("input", () => {
     if (input.getAttribute("aria-invalid") === "true") showFieldError(input);
   });

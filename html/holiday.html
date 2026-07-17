@@ -37,12 +37,18 @@
 
         <section aria-labelledby="holiday-plan-title">
           <div class="section-heading">
-            <p class="eyebrow">ONE DAY PLAN</p>
-            <h2 id="holiday-plan-title">느긋하게 채우는 하루</h2>
+            <p class="eyebrow">WEEKEND PLAN</p>
+            <h2 id="holiday-plan-title">느긋하게 채우는 주말</h2>
           </div>
-          <div class="holiday-schedule__grid">
-            <section class="schedule-card" aria-labelledby="morning-title">
-              <h3 id="morning-title">아침</h3>
+          <div class="holiday-days">
+          <section class="holiday-day" aria-labelledby="saturday-title">
+            <header class="holiday-day__heading">
+              <p class="eyebrow">SATURDAY</p>
+              <h3 id="saturday-title">토요일</h3>
+            </header>
+            <div class="holiday-schedule__grid">
+            <section class="schedule-card" aria-labelledby="saturday-morning-title">
+              <h4 id="saturday-morning-title">아침</h4>
               <p class="schedule-item">
                 <time datetime="09:00">09:00</time>
                 늦잠 자고 기상 및 아침 식사
@@ -57,8 +63,8 @@
               </p>
             </section>
 
-            <section class="schedule-card" aria-labelledby="afternoon-title">
-              <h3 id="afternoon-title">오후 활동</h3>
+            <section class="schedule-card" aria-labelledby="saturday-afternoon-title">
+              <h4 id="saturday-afternoon-title">오후 활동</h4>
               <p class="schedule-item">
                 <time datetime="13:00">13:00</time>
                 공부 살짝 하거나 <mark>과제 수행</mark>
@@ -73,8 +79,8 @@
               </p>
             </section>
 
-            <section class="schedule-card" aria-labelledby="evening-title">
-              <h3 id="evening-title">저녁과 밤</h3>
+            <section class="schedule-card" aria-labelledby="saturday-evening-title">
+              <h4 id="saturday-evening-title">저녁과 밤</h4>
               <p class="schedule-item">
                 <time datetime="18:00">18:00</time>
                 맛있는 저녁을 먹거나 직접 만들기
@@ -88,6 +94,64 @@
                 책 독서 후 일찍 취침
               </p>
             </section>
+            </div>
+          </section>
+
+          <section class="holiday-day" aria-labelledby="sunday-title">
+            <header class="holiday-day__heading">
+              <p class="eyebrow">SUNDAY</p>
+              <h3 id="sunday-title">일요일</h3>
+            </header>
+            <div class="holiday-schedule__grid">
+              <section class="schedule-card" aria-labelledby="sunday-morning-title">
+                <h4 id="sunday-morning-title">아침</h4>
+                <p class="schedule-item">
+                  <time datetime="09:30">09:30</time>
+                  천천히 일어나 가벼운 아침 식사
+                </p>
+                <p class="schedule-item">
+                  <time datetime="10:30">10:30</time>
+                  한 주를 돌아보며 <mark>주간 기록</mark>
+                </p>
+                <p class="schedule-item">
+                  <time datetime="11:30">11:30</time>
+                  좋아하는 카페에서 여유 즐기기
+                </p>
+              </section>
+
+              <section class="schedule-card" aria-labelledby="sunday-afternoon-title">
+                <h4 id="sunday-afternoon-title">오후 활동</h4>
+                <p class="schedule-item">
+                  <time datetime="13:00">13:00</time>
+                  점심 식사 후 가벼운 산책
+                </p>
+                <p class="schedule-item">
+                  <time datetime="15:00">15:00</time>
+                  다음 주를 위한 <mark>학습 계획 세우기</mark>
+                </p>
+                <p class="schedule-item">
+                  <time datetime="16:30">16:30</time>
+                  취미 생활과 충분한 휴식
+                </p>
+              </section>
+
+              <section class="schedule-card" aria-labelledby="sunday-evening-title">
+                <h4 id="sunday-evening-title">저녁과 밤</h4>
+                <p class="schedule-item">
+                  <time datetime="18:00">18:00</time>
+                  가족과 함께 저녁 식사
+                </p>
+                <p class="schedule-item">
+                  <time datetime="20:00">20:00</time>
+                  가방과 옷을 챙기며 <mark>월요일 준비</mark>
+                </p>
+                <p class="schedule-item">
+                  <time datetime="22:30">22:30</time>
+                  독서 후 일찍 취침
+                </p>
+              </section>
+            </div>
+          </section>
           </div>
         </section>
       </main>

@@ -98,7 +98,7 @@
             <div class="form-grid form-grid--two">
             <div class="form-field">
               <label for="userName">이름 <span class="required-mark" aria-label="필수">*</span></label>
-              <input type="text" id="userName" name="userName" autocomplete="name" aria-describedby="userName-error" required />
+              <input type="text" id="userName" name="userName" placeholder="예: 김희주" autocomplete="name" aria-describedby="userName-error" required />
               <small class="form-error" id="userName-error" aria-live="polite"></small>
             </div>
             <div class="form-field">
@@ -108,12 +108,12 @@
             </div>
             </div>
             <div class="form-field">
-              <span class="form-label">성별 <span class="required-mark" aria-label="필수">*</span></span>
+              <span class="form-label">성별 <span class="optional-mark">선택</span></span>
               <div class="choice-group choice-group--cards choice-group--gender">
-                <label><input type="radio" id="genderMale" name="gender" value="male" data-error-target="gender-error" required /><span>남성</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
-                <label><input type="radio" id="genderFemale" name="gender" value="female" data-error-target="gender-error" required /><span>여성</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
+                <label><input type="radio" name="gender" value="male" /><span>남성</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
+                <label><input type="radio" name="gender" value="female" /><span>여성</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
+                <label><input type="radio" name="gender" value="none" checked /><span>선택 안 함</span><svg class="choice-check ui-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m20 6-11 11-5-5" /></svg></label>
               </div>
-              <small class="form-error" id="gender-error" aria-live="polite"></small>
             </div>
             <div class="form-field">
               <span class="form-label">관심 분야 <span class="optional-mark">복수 선택</span></span>
@@ -156,8 +156,8 @@
 
           <p class="form-submit-note">입력한 내용을 확인한 뒤 회원가입을 완료해주세요.</p>
           <div class="form-actions">
-            <input type="submit" value="회원가입 완료" />
-            <input type="reset" value="다시 작성" />
+            <button type="reset"><span>다시 작성</span></button>
+            <button type="submit"><span>회원가입 완료</span></button>
           </div>
         </form>
       </main>

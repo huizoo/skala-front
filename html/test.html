@@ -6,30 +6,29 @@
     <title>Document</title>
   </head>
   <body>
-<ul id="menu">
-  <li><button data-value="HTML">HTML</button></li>
-  <li><button data-value="CSS">CSS</button></li>
-  <li><button data-value="JavaScript">JavaScript</button></li>
-</ul>
-    </div>
+    <ul id="menu">
+      <li><button data-value="HTML">HTML</button></li>
+      <li><button data-value="CSS">CSS</button></li>
+      <li><button data-value="JavaScript">JavaScript</button></li>
+    </ul>
     <script>
-function delay(ms) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
+      function delay(ms) {
+        return new Promise((resolve) => {
+          setTimeout(resolve, ms);
+        });
+      }
 
-async function run() {
-  console.log("run 시작");
+      async function run() {
+        console.log("run 시작");
 
-  await delay(1000);
+        await delay(1000);
 
-  console.log("run 끝");
-}
+        console.log("run 끝");
+      }
 
-console.log("A");
-run();
-console.log("B");
+      console.log("A");
+      run();
+      console.log("B");
     </script>
   </body>
 </html>

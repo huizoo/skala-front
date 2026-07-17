@@ -6,6 +6,8 @@
     <meta name="description" content="김희주의 개인 포털" />
     <meta name="author" content="김희주" />
     <title>Welcome SKALA</title>
+    <script src="../script/theme.js"></script>
+    <script src="../script/reveal.js" defer></script>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -60,7 +62,7 @@
                     있습니다.
                   </p>
                   <a class="home-update-card__link" href="./myTrip.html#travel-film">
-                    <span>영상 보러가기</span>
+                    <span class="home-update-card__label"><span>영상 보러가기</span></span>
                     <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
                       <path d="M5 12h14" />
                       <path d="m13 6 6 6-6 6" />
@@ -89,6 +91,54 @@
                   </div>
                 </article>
               </div>
+            </section>
+
+            <section class="home-notes" aria-labelledby="notes-title">
+              <div class="section-heading">
+                <p class="eyebrow">WEEKLY NOTES</p>
+                <h2 id="notes-title">이번 주의 기록</h2>
+              </div>
+              <ol class="home-notes__list">
+                <li>
+                  <a href="./signUp.html">
+                    <span class="home-notes__index">01</span>
+                    <div>
+                      <time datetime="2026-07-18">2026 / 07 / 18</time>
+                      <h3>회원가입 흐름 다듬기</h3>
+                      <p>필수 입력 안내와 선택 상태를 정리하고 폼의 사용성을 개선했습니다.</p>
+                    </div>
+                    <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="./holiday.html">
+                    <span class="home-notes__index">02</span>
+                    <div>
+                      <time datetime="2026-07-18">2026 / 07 / 18</time>
+                      <h3>주말 루틴 확장하기</h3>
+                      <p>하루 일정이었던 휴일 기록을 토요일과 일요일 계획으로 나눴습니다.</p>
+                    </div>
+                    <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+                    </svg>
+                  </a>
+                </li>
+                <li>
+                  <a href="./myTrip.html">
+                    <span class="home-notes__index">03</span>
+                    <div>
+                      <time datetime="2026-07-18">2026 / 07 / 18</time>
+                      <h3>여행 기록 연결하기</h3>
+                      <p>사진 라이트박스와 영상 바로가기를 연결해 여행 기록을 쉽게 탐색하도록 했습니다.</p>
+                    </div>
+                    <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                      <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+                    </svg>
+                  </a>
+                </li>
+              </ol>
             </section>
           </div>
 

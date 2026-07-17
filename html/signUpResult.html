@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입 완료 - SKALA</title>
+    <script src="../script/theme.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
@@ -44,16 +45,42 @@
         </section>
 
 
-        <section>
+        <section class="result-links">
           <h2>이동하기</h2>
-          <p>아래 링크를 클릭하여 다른 페이지로 이동할 수 있습니다.</p>
-          <ul>
-            <li><a href="myProfile.html">나의 프로필 보기</a></li>
-            <li><a href="myClass.html">나의 수업 시간표 보기</a></li>
-            <li><a href="holiday.html">나의 휴일 계획 보기</a></li>
-            <li><a href="myTrip.html">나의 여행 앨범 보기</a></li>
-            <li><a href="index.html">홈으로 돌아가기</a></li>
-          </ul>
+          <nav class="result-links__nav" aria-label="가입 완료 후 이동">
+            <div class="result-links__grid">
+              <a href="myProfile.html">
+                <span><small>PROFILE</small><strong>나의 프로필 보기</strong></span>
+                <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M7 17 17 7" /><path d="M7 7h10v10" />
+                </svg>
+              </a>
+              <a href="myClass.html">
+                <span><small>CLASS</small><strong>나의 수업 시간표 보기</strong></span>
+                <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M7 17 17 7" /><path d="M7 7h10v10" />
+                </svg>
+              </a>
+              <a href="holiday.html">
+                <span><small>HOLIDAY</small><strong>나의 휴일 계획 보기</strong></span>
+                <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M7 17 17 7" /><path d="M7 7h10v10" />
+                </svg>
+              </a>
+              <a href="myTrip.html">
+                <span><small>TRIP</small><strong>나의 여행 앨범 보기</strong></span>
+                <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M7 17 17 7" /><path d="M7 7h10v10" />
+                </svg>
+              </a>
+            </div>
+            <a class="result-links__home" href="index.html">
+              <span>홈으로 돌아가기</span>
+              <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+              </svg>
+            </a>
+          </nav>
         </section>
       </main>
     </div>

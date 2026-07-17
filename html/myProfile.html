@@ -3,51 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>나의 소개</title>
+    <title>나의 소개 - SKALA</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>안녕하세요! 저를 소개합니다! 😆</h1>
-        <p>
+    <header class="site-header">
+      <div class="layout-container site-header__inner">
+        <a class="site-brand" href="./index.html" aria-label="HEEJU 홈">HEEJU<span>.</span></a>
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <ul>
+            <li><a href="./myProfile.html" aria-current="page">프로필</a></li>
+            <li><a href="./myClass.html">수업</a></li>
+            <li><a href="./holiday.html">휴일</a></li>
+            <li><a href="./myTrip.html">여행</a></li>
+            <li><a href="./signUp.html">회원가입</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout-container">
+      <main class="page-main page-main--narrow">
+        <header class="page-heading">
+          <p class="eyebrow">ABOUT ME</p>
+          <h1>안녕하세요! 저를 소개합니다.</h1>
+          <p>
           아래는 제가 좋아하는 것들과 올해의 계획, 그리고 저를 표현하는
           단어들입니다.
-        </p>
-      </header>
-      <main>
-        <section>
-          <h2>내가 좋아하는 음식</h2>
+          </p>
+        </header>
+
+        <section class="profile-section" aria-labelledby="favorite-food-title">
+          <div class="section-heading">
+            <p class="eyebrow">FAVORITES</p>
+            <h2 id="favorite-food-title">내가 좋아하는 음식</h2>
+          </div>
           <ul>
-            <li>바삭한 치킨 🍗</li>
-            <li>뜨끈한 국밥 🍲</li>
-            <li>매콤한 떡볶이 🌶️</li>
+            <li>바삭한 치킨</li>
+            <li>뜨끈한 국밥</li>
+            <li>매콤한 떡볶이</li>
           </ul>
         </section>
-        <hr />
-        <section>
-          <h2>올해 할 일</h2>
+
+
+        <section class="profile-section" aria-labelledby="year-plan-title">
+          <div class="section-heading">
+            <p class="eyebrow">2026 PLAN</p>
+            <h2 id="year-plan-title">올해 할 일</h2>
+          </div>
           <ol>
-            <li>SKALA 수업 열심히 듣기 💻</li>
-            <li>SK 그룹 채용연계 꼭 붙기 🥇</li>
-            <li>토익 스피킹 IH 이상 취득하기 📚</li>
+            <li>SKALA 수업 열심히 듣기</li>
+            <li>SK 그룹 채용연계 꼭 붙기</li>
+            <li>토익 스피킹 IH 이상 취득하기</li>
           </ol>
         </section>
-        <hr />
-        <section>
-          <h2>나를 설명하는 단어들</h2>
+
+
+        <section class="profile-section" aria-labelledby="keywords-title">
+          <div class="section-heading">
+            <p class="eyebrow">KEYWORDS</p>
+            <h2 id="keywords-title">나를 설명하는 단어들</h2>
+          </div>
           <dl>
-            <dt>🔥 열정</dt>
+            <dt>열정</dt>
             <dd>
               맡은 일에 깊이 몰입하며, 더 나은 결과를 만들기 위해 끝까지
               고민하고 도전합니다.
             </dd>
-            <dt>🔍 호기심</dt>
+            <dt>호기심</dt>
             <dd>
               새로운 기술과 흥미로운 아이디어를 발견하면 직접 경험하고 원리를
               이해해야 적성이 풀립니다.
             </dd>
-            <dt>🌱 성실함</dt>
+            <dt>성실함</dt>
             <dd>
               작은 계획이라도 꾸준히 실천하며, 맡은 일은 책임감을 가지고 끝까지
               완성합니다.
@@ -56,5 +84,15 @@
         </section>
       </main>
     </div>
+
+    <footer class="site-footer">
+      <div class="layout-container site-footer__inner">
+        <p class="site-brand">HEEJU<span>.</span></p>
+        <div class="site-footer__meta">
+          <a href="mailto:ajtwlsgmlwn@naver.com">AJTWLSGMLWN@NAVER.COM</a
+          ><small>© 2026 김희주 포트폴리오</small>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

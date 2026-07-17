@@ -29,15 +29,9 @@ const startUpDownGame = () => {
     } else if (num > computerNum) {
       alert("Down! 컴퓨터가 생각한 숫자가 더 작습니다.");
     } else {
-      const retry = confirm(
-        `정답입니다! ${cnt}번의 시도 끝에 컴퓨터가 생각한 숫자를 맞췄습니다!\n다른 숫자도 맞춰보시겠습니까?`,
+      alert(
+        `축하합니다! ${cnt}번 만에 컴퓨터가 생각한 숫자를 맞추셨습니다.`,
       );
-
-      if (retry) {
-        return startUpDownGame();
-      }
-
-      alert("게임을 종료합니다.");
       return;
     }
   }

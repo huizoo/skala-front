@@ -3,39 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>나의 여행지</title>
+    <title>나의 여행지 - SKALA</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>나의 여행 앨범</h1>
-        <audio src="../media/music.mp3" controls autoplay></audio>
-      </header>
-      <main>
-        <section class="trip-grid">
-          <h2>여행 사진</h2>
-          <figure class="trip-card">
-            <img src="../media/리장.jpg" alt="리장 호도협(2025년)" />
-            <figcaption>리장 호도협(2025년)</figcaption>
-          </figure>
-          <figure class="trip-card">
-            <img src="../media/세부.jpg" alt="세부 탑스힐(2024년)" />
-            <figcaption>세부 탑스힐(2024년)</figcaption>
-          </figure>
-          <figure class="trip-card">
-            <img src="../media/홋카이도.jpg" alt="홋카이도 대설산(2025년)" />
-            <figcaption>홋카이도 대설산(2025년)</figcaption>
-          </figure>
+    <header class="site-header">
+      <div class="layout-container site-header__inner">
+        <a class="site-brand" href="./index.html" aria-label="HEEJU 홈">HEEJU<span>.</span></a>
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <ul>
+            <li><a href="./myProfile.html">프로필</a></li>
+            <li><a href="./myClass.html">수업</a></li>
+            <li><a href="./holiday.html">휴일</a></li>
+            <li><a href="./myTrip.html" aria-current="page">여행</a></li>
+            <li><a href="./signUp.html">회원가입</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout-container">
+      <main class="page-main">
+        <header class="page-heading">
+          <p class="eyebrow">TRAVEL ARCHIVE</p>
+          <h1>나의 여행 앨범</h1>
+          <p>추억이 담긴 여행 사진과 영상 모음</p>
+        </header>
+
+        <section class="trip-soundtrack" aria-labelledby="soundtrack-title">
+          <div class="section-heading">
+            <p class="eyebrow">SOUNDTRACK</p>
+            <h2 id="soundtrack-title">여행의 배경 음악</h2>
+          </div>
+          <audio controls preload="metadata">
+            <source src="../media/music.mp3" type="audio/mpeg" />
+            브라우저가 오디오 재생을 지원하지 않습니다.
+          </audio>
         </section>
-        <section>
-          <h2>나의 여행 브이로그</h2>
-          <figure class="trip-card">
-            <video src="../media/video.mp4" controls></video>
+
+        <section aria-labelledby="gallery-title">
+          <div class="section-heading">
+            <p class="eyebrow">PHOTO NOTES</p>
+            <h2 id="gallery-title">여행 사진</h2>
+          </div>
+          <div class="trip-grid">
+            <figure class="trip-card">
+              <img src="../media/리장.jpg" alt="리장 호도협(2025년)" />
+              <figcaption>리장 호도협 (2025년)</figcaption>
+            </figure>
+            <figure class="trip-card">
+              <img src="../media/세부.jpg" alt="세부 탑스힐(2024년)" />
+              <figcaption>세부 탑스힐 (2024년)</figcaption>
+            </figure>
+            <figure class="trip-card">
+              <img src="../media/홋카이도.jpg" alt="홋카이도 대설산(2025년)" />
+              <figcaption>홋카이도 대설산 (2025년)</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section aria-labelledby="vlog-title">
+          <div class="section-heading">
+            <p class="eyebrow">TRAVEL FILM</p>
+            <h2 id="vlog-title">나의 여행 브이로그</h2>
+          </div>
+          <figure class="trip-card trip-card--video">
+            <video controls preload="metadata">
+              <source src="../media/video.mp4" type="video/mp4" />
+              브라우저가 동영상 재생을 지원하지 않습니다.
+            </video>
             <figcaption>리장의 아름다운 음악</figcaption>
           </figure>
         </section>
       </main>
     </div>
+
+    <footer class="site-footer">
+      <div class="layout-container site-footer__inner">
+        <p class="site-brand">HEEJU<span>.</span></p>
+        <div class="site-footer__meta">
+          <a href="mailto:ajtwlsgmlwn@naver.com">AJTWLSGMLWN@NAVER.COM</a
+          ><small>© 2026 김희주 포트폴리오</small>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

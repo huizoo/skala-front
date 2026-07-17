@@ -29,8 +29,19 @@ const calculateGrade = () => {
   }
   const average = total / subjects.length;
   const result = average >= 60 ? "합격" : "불합격";
+  let grade = "F";
+
+  if (average >= 90) {
+    grade = "A";
+  } else if (average >= 80) {
+    grade = "B";
+  } else if (average >= 70) {
+    grade = "C";
+  } else if (average >= 60) {
+    grade = "D";
+  }
 
   alert(
-    `총점: ${total}점\n평균: ${average.toFixed(2)}점\n결과: ${result}입니다!`,
+    `총점: ${total}점\n평균: ${average.toFixed(2)}점\n등급: ${grade}\n결과: ${result}입니다!`,
   );
 };

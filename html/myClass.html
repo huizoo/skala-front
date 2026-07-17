@@ -3,73 +3,195 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>나의 강의 일정</title>
+    <title>나의 강의 일정 - SKALA</title>
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <header>
-        <h1>🗓️ 나의 강의 시간표</h1>
-      </header>
-      <main>
-        <table>
-          <thead>
-            <tr>
-              <th>시간</th>
-              <th>월요일</th>
-              <th>화요일</th>
-              <th>수요일</th>
-              <th>목요일</th>
-              <th>금요일</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>09:00 - 10:00</td>
-              <td rowspan="3">수업1</td>
-              <td rowspan="3">수업1</td>
-              <td rowspan="3">수업1</td>
-              <td rowspan="3">수업1</td>
-              <td rowspan="3">수업1</td>
-            </tr>
-            <tr>
-              <td>10:00 - 11:00</td>
-            </tr>
-            <tr>
-              <td>11:00 - 12:00</td>
-            </tr>
-            <tr>
-              <td>12:00 - 13:00</td>
-              <td colspan="5">점 심 시 간</td>
-            </tr>
-            <tr>
-              <td>13:00 - 14:00</td>
-              <td rowspan="4">수업2</td>
-              <td rowspan="3">수업2</td>
-              <td rowspan="4">수업2</td>
-              <td rowspan="3">수업2</td>
-              <td rowspan="4">수업2</td>
-            </tr>
-            <tr>
-              <td>14:00 - 15:00</td>
-            </tr>
-            <tr>
-              <td>15:00 - 16:00</td>
-            </tr>
-            <tr>
-              <td>16:00 - 17:00</td>
-              <td rowspan="2">수업3</td>
-              <td rowspan="2">수업3</td>
-            </tr>
-            <tr>
-              <td>17:00 - 18:00</td>
-              <td>수업3</td>
-              <td>수업3</td>
-              <td>수업3</td>
-            </tr>
-          </tbody>
-        </table>
+    <header class="site-header">
+      <div class="layout-container site-header__inner">
+        <a class="site-brand" href="./index.html" aria-label="HEEJU 홈">HEEJU<span>.</span></a>
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <ul>
+            <li><a href="./myProfile.html">프로필</a></li>
+            <li><a href="./myClass.html" aria-current="page">수업</a></li>
+            <li><a href="./holiday.html">휴일</a></li>
+            <li><a href="./myTrip.html">여행</a></li>
+            <li><a href="./signUp.html">회원가입</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout-container">
+      <main class="page-main">
+        <header class="page-heading">
+          <p class="eyebrow">WEEKLY CLASS</p>
+          <h1>나의 강의 시간표</h1>
+          <p>한 주의 학습 흐름을 한눈에 확인하는 주간 강의 일정표입니다.</p>
+        </header>
+
+        <div
+          class="table-scroll"
+          role="region"
+          aria-label="주간 강의 시간표"
+          tabindex="0"
+        >
+          <table class="class-table">
+            <caption>
+              월요일부터 금요일까지 진행되는 SKALA 주간 교육 과정
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">시간</th>
+                <th scope="col">월요일</th>
+                <th scope="col">화요일</th>
+                <th scope="col">수요일</th>
+                <th scope="col">목요일</th>
+                <th scope="col">금요일</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <time datetime="09:00">09:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="10:00">10:00</time>
+                </th>
+                <td rowspan="3" class="class-table__course class-table__course--team">
+                  팀빌딩, Git 이해/활용
+                </td>
+                <td class="class-table__empty">수업 준비</td>
+                <td rowspan="2" class="class-table__course class-table__course--data">
+                  데이터 분석을 위한 Python 이해
+                </td>
+                <td class="class-table__empty">수업 준비</td>
+                <td rowspan="3" class="class-table__course class-table__course--cloud">
+                  컨테이너 이해 및 애플리케이션 컨테이너화
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <time datetime="10:00">10:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="11:00">11:00</time>
+                </th>
+                <td rowspan="2" class="class-table__course class-table__course--frontend">
+                  HTML, CSS, JavaScript
+                </td>
+                <td rowspan="2" class="class-table__course class-table__course--backend">
+                  Java, SpringBoot, Rest API 구현
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <time datetime="11:00">11:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="12:00">12:00</time>
+                </th>
+                <td class="class-table__course class-table__course--data">
+                  데이터 분석 개요 및 기초통계
+                </td>
+              </tr>
+              <tr class="class-table__break">
+                <th scope="row">
+                  <time datetime="12:00">12:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="13:00">13:00</time>
+                </th>
+                <td colspan="5">점심시간</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <time datetime="13:00">13:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="14:00">14:00</time>
+                </th>
+                <td rowspan="3" class="class-table__course class-table__course--data">
+                  스마트 데이터 이해 및 활용
+                </td>
+                <td rowspan="2" class="class-table__course class-table__course--data">
+                  데이터 분석 개요 및 기초통계
+                </td>
+                <td rowspan="3" class="class-table__course class-table__course--ai">
+                  LLM과 Transformer 아키텍처
+                </td>
+                <td rowspan="3" class="class-table__course class-table__course--backend">
+                  Agile 방법론 및 MSA 개발
+                </td>
+                <td rowspan="2" class="class-table__course class-table__course--cloud">
+                  쿠버네티스 이해 및 애플리케이션 배포
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <time datetime="14:00">14:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="15:00">15:00</time>
+                </th>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <time datetime="15:00">15:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="16:00">16:00</time>
+                </th>
+                <td rowspan="2" class="class-table__course class-table__course--ai">
+                  sLLM 구현 및 Fine Tuning
+                </td>
+                <td rowspan="4" class="class-table__course class-table__course--ai">
+                  머신러닝 및 딥러닝 이해
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <time datetime="16:00">16:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="17:00">17:00</time>
+                </th>
+                <td rowspan="2" class="class-table__course class-table__course--ai">
+                  Prompt 설계와 Context
+                </td>
+                <td class="class-table__course class-table__course--frontend">
+                  Front-framework: Vue.js
+                </td>
+                <td rowspan="2" class="class-table__course class-table__course--ai">
+                  Spring AI
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <time datetime="17:00">17:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="18:00">18:00</time>
+                </th>
+                <td class="class-table__empty">수업 종료</td>
+                <td class="class-table__empty">수업 종료</td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <time datetime="18:00">18:00</time>
+                  <span class="visually-hidden">부터</span>
+                  <time datetime="19:00">19:00</time>
+                </th>
+                <td class="class-table__empty">수업 종료</td>
+                <td class="class-table__empty">수업 종료</td>
+                <td class="class-table__empty">수업 종료</td>
+                <td class="class-table__empty">수업 종료</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </main>
     </div>
+
+    <footer class="site-footer">
+      <div class="layout-container site-footer__inner">
+        <p class="site-brand">HEEJU<span>.</span></p>
+        <div class="site-footer__meta">
+          <a href="mailto:ajtwlsgmlwn@naver.com">AJTWLSGMLWN@NAVER.COM</a
+          ><small>© 2026 김희주 포트폴리오</small>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

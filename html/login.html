@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 - SKALA</title>
+    <script src="../script/theme.js"></script>
+    <script type="module" src="../script/siteShell.js"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="layout-container site-header__inner">
+        <a class="site-brand" href="./index.html" aria-label="HEEJU 홈">HEEJU<span>.</span></a>
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <ul>
+            <li><a href="./myProfile.html">프로필</a></li>
+            <li><a href="./myClass.html">수업</a></li>
+            <li><a href="./holiday.html">휴일</a></li>
+            <li><a href="./myTrip.html">여행</a></li>
+            <li><a href="./signUp.html">회원가입</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout-container">
+      <main class="page-main page-main--narrow auth-main">
+        <header class="page-heading">
+          <p class="eyebrow">WELCOME BACK</p>
+          <h1>로그인</h1>
+          <p>저장된 계정으로 로그인하여 나만의 페이지를 확인해보세요.</p>
+        </header>
+
+        <form class="auth-form" id="login-form" novalidate>
+          <div class="form-field">
+            <label for="login-user-id">아이디</label>
+            <input id="login-user-id" name="userId" type="text" autocomplete="username" required />
+          </div>
+          <div class="form-field">
+            <label for="login-password">비밀번호</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+          </div>
+          <label class="auth-form__remember">
+            <input name="remember" type="checkbox" />
+            <span>로그인 상태 유지</span>
+          </label>
+          <p class="form-error auth-form__error" id="login-error" role="alert"></p>
+          <button class="auth-form__submit" type="submit"><span>로그인</span></button>
+          <p class="auth-form__helper">아직 계정이 없다면 <a href="./signUp.html">회원가입</a>을 진행해주세요.</p>
+        </form>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="layout-container site-footer__inner">
+        <p class="site-brand">HEEJU<span>.</span></p>
+        <div class="site-footer__meta">
+          <a href="mailto:ajtwlsgmlwn@naver.com">AJTWLSGMLWN@NAVER.COM</a>
+          <small>© 2026 김희주 포트폴리오</small>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../script/login.js"></script>
+    <script src="../script/backToTop.js"></script>
+  </body>
+</html>

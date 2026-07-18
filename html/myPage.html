@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이페이지 - SKALA</title>
+    <script src="../script/theme.js"></script>
+    <script type="module" src="../script/siteShell.js"></script>
+    <script src="../script/reveal.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="layout-container site-header__inner">
+        <a class="site-brand" href="./index.html" aria-label="HEEJU 홈">HEEJU<span>.</span></a>
+        <nav class="site-nav" aria-label="주요 메뉴">
+          <ul>
+            <li><a href="./myProfile.html">프로필</a></li>
+            <li><a href="./myClass.html">수업</a></li>
+            <li><a href="./holiday.html">휴일</a></li>
+            <li><a href="./myTrip.html">여행</a></li>
+            <li><a href="./signUp.html">회원가입</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout-container">
+      <main class="page-main page-main--narrow my-page-main">
+        <header class="page-heading">
+          <p class="eyebrow">MY ACCOUNT</p>
+          <h1 id="my-page-title">마이페이지</h1>
+          <p>회원가입 때 입력한 정보를 확인할 수 있습니다.</p>
+        </header>
+
+        <section class="my-page-card" id="my-page-account" hidden>
+          <div class="section-heading section-heading--compact">
+            <p class="eyebrow">ACCOUNT DETAILS</p>
+            <h2>내 정보</h2>
+          </div>
+          <dl class="my-page-details">
+            <dt>아이디</dt><dd data-user-field="userId"></dd>
+            <dt>이름</dt><dd data-user-field="name"></dd>
+            <dt>이메일</dt><dd data-user-field="email"></dd>
+            <dt>생년월일</dt><dd data-user-field="birth"></dd>
+            <dt>성별</dt><dd data-user-field="gender"></dd>
+            <dt>관심 분야</dt><dd data-user-field="interests"></dd>
+            <dt>가입 경로</dt><dd data-user-field="subscription"></dd>
+            <dt>자기소개</dt><dd data-user-field="intro"></dd>
+            <dt>가입일</dt><dd data-user-field="createdAt"></dd>
+          </dl>
+          <button class="my-page-logout" id="my-page-logout" type="button">로그아웃</button>
+        </section>
+
+        <section class="my-page-guest" id="my-page-guest" hidden>
+          <p class="eyebrow">LOGIN REQUIRED</p>
+          <h2>로그인이 필요합니다.</h2>
+          <p>로그인하면 회원가입 때 입력한 정보와 사용자별 휴일 계획을 확인할 수 있습니다.</p>
+          <div class="my-page-guest__actions">
+            <a href="./login.html">로그인</a>
+            <a href="./signUp.html">회원가입</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <div class="layout-container site-footer__inner">
+        <p class="site-brand">HEEJU<span>.</span></p>
+        <div class="site-footer__meta">
+          <a href="mailto:ajtwlsgmlwn@naver.com">AJTWLSGMLWN@NAVER.COM</a>
+          <small>© 2026 김희주 포트폴리오</small>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="../script/myPage.js"></script>
+    <script src="../script/backToTop.js"></script>
+  </body>
+</html>

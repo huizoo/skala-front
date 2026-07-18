@@ -1,3 +1,5 @@
+import { AuthError, registerUser, startSession } from "./authStore.js";
+
 const signupForm = document.querySelector(".signup-form");
 const passwordInput = document.querySelector("#userPw");
 const passwordToggle = document.querySelector(".password-toggle");
@@ -61,15 +63,41 @@ introTextarea.addEventListener("input", () => {
   introCount.textContent = introTextarea.value.length;
 });
 
-signupForm.addEventListener("submit", (event) => {
+signupForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
   const requiredInputs = [...signupForm.querySelectorAll("[required]")];
 
   requiredInputs.forEach(showFieldError);
 
   const firstInvalidInput = requiredInputs.find((input) => !input.checkValidity());
   if (firstInvalidInput) {
-    event.preventDefault();
     firstInvalidInput.focus();
+    return;
+  }
+
+  const submitButton = signupForm.querySelector('button[type="submit"]');
+  const signupStatus = document.querySelector("#signup-status");
+  submitButton.disabled = true;
+  signupStatus.textContent = "회원 정보를 브라우저에 저장하는 중입니다.";
+
+  try {
+    const user = await registerUser(new FormData(signupForm));
+    startSession(user.userId);
+
+    const resultUrl = new URL(signupForm.action, window.location.href);
+    resultUrl.search = new URLSearchParams({ userId: user.userId, userName: user.name });
+    window.location.assign(resultUrl);
+  } catch (error) {
+    if (error instanceof AuthError && error.code === "duplicate-user") {
+      const userIdInput = document.querySelector("#userId");
+      document.querySelector("#userId-error").textContent = error.message;
+      userIdInput.setAttribute("aria-invalid", "true");
+      userIdInput.focus();
+    } else {
+      signupStatus.textContent =
+        error instanceof AuthError ? error.message : "회원 정보를 저장하지 못했습니다.";
+    }
+    submitButton.disabled = false;
   }
 });
 
@@ -84,5 +112,6 @@ signupForm.addEventListener("reset", () => {
     passwordToggle.textContent = "보기";
     passwordToggle.setAttribute("aria-pressed", "false");
     introCount.textContent = "0";
+    document.querySelector("#signup-status").textContent = "";
   });
 });

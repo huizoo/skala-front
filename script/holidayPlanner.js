@@ -3,7 +3,6 @@ import { getCurrentUser } from "./authStore.js";
 const plannerForm = document.querySelector("#planner-form");
 const plannerList = document.querySelector("#planner-list");
 const emptyMessage = document.querySelector("#planner-empty");
-const statusMessage = document.querySelector("#planner-status");
 const ownerMessage = document.querySelector("#planner-owner-message");
 const count = document.querySelector("#planner-count");
 const clearButton = document.querySelector("#planner-clear");
@@ -33,7 +32,7 @@ const savePlans = () => {
     window.localStorage.setItem(storageKey, JSON.stringify(plans));
     return true;
   } catch {
-    statusMessage.textContent = "일정을 저장하지 못했습니다. 브라우저 저장소를 확인해주세요.";
+    window.alert("일정을 저장하지 못했습니다. 브라우저 저장소를 확인해주세요.");
     return false;
   }
 };
@@ -109,10 +108,8 @@ plannerForm?.addEventListener("submit", (event) => {
 
   if (editingId) {
     plans = plans.map((item) => (item.id === editingId ? plan : item));
-    statusMessage.textContent = "일정을 수정했습니다.";
   } else {
     plans.push(plan);
-    statusMessage.textContent = "새 일정을 추가했습니다.";
   }
 
   if (savePlans()) {
@@ -129,9 +126,10 @@ plannerList?.addEventListener("click", (event) => {
   if (!plan) return;
 
   if (button.dataset.action === "delete") {
+    if (!window.confirm(`“${plan.title}” 일정을 삭제할까요?`)) return;
+
     plans = plans.filter((item) => item.id !== plan.id);
     if (savePlans()) {
-      statusMessage.textContent = "일정을 삭제했습니다.";
       renderPlans();
     }
     return;
@@ -154,7 +152,6 @@ clearButton?.addEventListener("click", () => {
   if (savePlans()) {
     resetForm();
     renderPlans();
-    statusMessage.textContent = "개인 일정을 모두 삭제했습니다.";
   }
 });
 

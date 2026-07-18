@@ -275,6 +275,10 @@
   .site-footer__meta {
     align-items: flex-start;
   }
+
+  .site-footer__links {
+    justify-content: flex-start;
+  }
 }
 
 @media (max-width: 30rem) {
@@ -285,6 +289,14 @@
 
   .trip-soundtrack__bar {
     padding: var(--space-2);
+  }
+
+  .quick-tool-dialog__actions {
+    flex-direction: column-reverse;
+  }
+
+  .quick-tool-dialog__actions button {
+    width: 100%;
   }
 
   .class-table th,

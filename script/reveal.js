@@ -23,6 +23,8 @@
 
     scenes.forEach(({ selector, type }) => {
       document.querySelectorAll(selector).forEach((element) => {
+        if (element.closest(".home-utility")) return;
+        if (element.closest(".my-page-card")) return;
         if (type === "heading" && element.closest(".profile-section")) return;
         if (type === "heading" && element.matches(".trip-soundtrack .section-heading")) return;
         if (type === "heading" && element.matches(".holiday-plan-heading")) return;

@@ -116,6 +116,10 @@ html[data-theme="dark"] .signup-form fieldset {
   font-size: var(--font-size-xs);
 }
 
+.form-error:empty {
+  display: none;
+}
+
 .form-counter {
   margin-top: 0.35rem;
   display: block;

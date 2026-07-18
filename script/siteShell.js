@@ -37,7 +37,7 @@ const setupSiteShell = () => {
       accountLink.textContent = user ? "마이페이지" : "회원가입";
       const isAccountPage = user
         ? pageName === "myPage.html"
-        : pageName === "signUp.html" || pageName === "signUpResult.html";
+        : pageName === "signUp.html";
 
       if (isAccountPage) accountLink.setAttribute("aria-current", "page");
       else accountLink.removeAttribute("aria-current");

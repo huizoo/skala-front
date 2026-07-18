@@ -374,11 +374,11 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
    -------------------------------------------------------------------------- */
 
 .result-main section {
-  padding-top: var(--space-4);
+  padding-top: 0;
 }
 
 .result-main section + section {
-  margin-top: var(--space-5);
+  margin-top: var(--space-4);
 }
 
 .result-main section h2 {
@@ -398,6 +398,30 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
 
 .result-main section li + li {
   margin-top: var(--space-1);
+}
+
+.signup-result-heading > * {
+  opacity: 0;
+  transform: translateY(0.45rem);
+}
+
+.signup-result-heading.is-ready > * {
+  animation: signup-result-copy-in 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.signup-result-heading.is-ready > :nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.signup-result-heading.is-ready > :nth-child(3) {
+  animation-delay: 140ms;
+}
+
+@keyframes signup-result-copy-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* AUTHENTICATION AND ACCOUNT
@@ -448,10 +472,6 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
   margin-block: var(--space-2);
 }
 
-.auth-form__error:empty {
-  display: none;
-}
-
 .auth-form__submit,
 .my-page-logout {
   position: relative;
@@ -465,7 +485,8 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
   font-weight: 700;
 }
 
-.auth-form__submit::before {
+.auth-form__submit::before,
+.my-page-logout::before {
   position: absolute;
   z-index: 0;
   inset: 0;
@@ -476,7 +497,8 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
   transition: transform 180ms ease-out;
 }
 
-.auth-form__submit > span {
+.auth-form__submit > span,
+.my-page-logout > span {
   position: relative;
   z-index: 1;
   color: #fff;
@@ -484,7 +506,9 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
 }
 
 .auth-form__submit:hover::before,
-.auth-form__submit:focus-visible::before {
+.auth-form__submit:focus-visible::before,
+.my-page-logout:hover::before,
+.my-page-logout:focus-visible::before {
   transform: scaleX(1);
 }
 
@@ -543,13 +567,6 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
   min-width: 8rem;
   margin-top: var(--space-3);
   padding-inline: var(--space-3);
-  transition: color var(--transition-fast), background var(--transition-fast);
-}
-
-.my-page-logout:hover,
-.my-page-logout:focus-visible {
-  color: #111110;
-  background: #fff;
 }
 
 .my-page-guest h2 {
@@ -595,9 +612,14 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
 }
 
 .planner-form input,
+.planner-form select,
+.planner-form button {
+  height: 3rem;
+}
+
+.planner-form input,
 .planner-form select {
   width: 100%;
-  min-height: 2.8rem;
   padding: 0.65rem 0.75rem;
   border: var(--border);
   color: var(--color-ink);
@@ -606,7 +628,6 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
 }
 
 .planner-form button {
-  min-height: 2.8rem;
   padding-inline: var(--space-2);
   border: 1px solid var(--color-ink);
   color: var(--color-paper);
@@ -728,10 +749,10 @@ html[data-theme="dark"] .trip-lightbox__nav:hover {
 }
 
 .result-links__grid a {
-  min-height: 7.5rem;
-  padding: var(--space-3);
+  min-height: 6rem;
+  padding: var(--space-2);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: var(--space-2);
   background: var(--color-surface);

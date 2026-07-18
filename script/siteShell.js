@@ -24,9 +24,9 @@ const setupSiteShell = () => {
   const accountLink = [...navList.querySelectorAll("a")].find((link) =>
     /\/(signUp|myPage)\.html$/.test(new URL(link.href).pathname),
   );
-  const authItem = document.createElement("li");
-  authItem.className = "site-nav__auth-item";
-  navList.append(authItem);
+  const authItem = navList.querySelector(".site-nav__auth-item");
+
+  if (!authItem) return;
 
   const updateAuthNavigation = () => {
     const user = getCurrentUser();

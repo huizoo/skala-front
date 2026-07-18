@@ -8,6 +8,9 @@
     <script type="module" src="../script/siteShell.js"></script>
     <script src="../script/reveal.js" defer></script>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/motion.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
   </head>
   <body>
     <header class="site-header">
@@ -21,9 +24,11 @@
             <li><a href="./myClass.html">수업</a></li>
             <li><a href="./holiday.html" aria-current="page">휴일</a></li>
             <li><a href="./myTrip.html">여행</a></li>
-            <li><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__account-item"><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__auth-item"><a href="./login.html">로그인</a></li>
           </ul>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="테마 전환"></button>
       </div>
     </header>
 
@@ -158,11 +163,11 @@
           </div>
         </section>
 
-        <section class="holiday-planner" aria-labelledby="planner-title">
+        <section aria-labelledby="planner-title">
           <div class="section-heading">
             <p class="eyebrow">MY WEEKEND PLANNER</p>
             <h2 id="planner-title">나만의 휴일 계획</h2>
-            <p class="trip-section-description" id="planner-owner-message"></p>
+            <p class="section-description" id="planner-owner-message"></p>
           </div>
 
           <form class="planner-form" id="planner-form">

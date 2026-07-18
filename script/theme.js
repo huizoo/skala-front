@@ -20,32 +20,12 @@
   const savedTheme = storedTheme === "dark" || storedTheme === "light" ? storedTheme : null;
   applyTheme(savedTheme ?? (systemTheme.matches ? "dark" : "light"));
 
-  const sunIcon = `
-    <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2" /><path d="M12 20v2" />
-      <path d="m4.93 4.93 1.42 1.42" /><path d="m17.66 17.66 1.41 1.41" />
-      <path d="M2 12h2" /><path d="M20 12h2" />
-      <path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
-    </svg>
-  `;
-  const moonIcon = `
-    <svg class="ui-icon" aria-hidden="true" viewBox="0 0 24 24">
-      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-    </svg>
-  `;
-
   const setupThemeToggle = () => {
-    const headerInner = document.querySelector(".site-header__inner");
-    if (!headerInner) return;
-
-    const button = document.createElement("button");
-    button.className = "theme-toggle";
-    button.type = "button";
+    const button = document.querySelector(".theme-toggle");
+    if (!button) return;
 
     const updateButton = () => {
       const isDark = root.dataset.theme === "dark";
-      button.innerHTML = isDark ? sunIcon : moonIcon;
       button.setAttribute("aria-label", isDark ? "라이트 모드로 전환" : "다크 모드로 전환");
       button.title = isDark ? "라이트 모드" : "다크 모드";
     };
@@ -64,7 +44,6 @@
     });
 
     updateButton();
-    headerInner.append(button);
   };
 
   if (document.readyState === "loading") {

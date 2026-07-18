@@ -2,7 +2,7 @@
   const root = document.documentElement;
   if (!root.classList.contains("intro-active")) return;
 
-  const introKey = "skala-home-intro-seen-v3";
+  const introKey = "skala-home-intro-seen-v4";
   const titleText = "김희주의 유니버스";
   const overlay = document.createElement("div");
   const introTitle = document.createElement("p");
@@ -28,6 +28,7 @@
   skipButton.textContent = "건너뛰기";
   overlay.append(introTitle, skipButton);
   document.body.prepend(overlay);
+  root.classList.add("intro-mounted");
 
   const rememberIntro = () => {
     try {
@@ -54,15 +55,12 @@
       () => {
         root.classList.remove(
           "intro-active",
-          "intro-layout-ready",
+          "intro-mounted",
           "intro-title-moving",
-          "intro-title-arrived",
-          "intro-title-swapped",
           "intro-complete",
           "intro-no-transition",
         );
         overlay.remove();
-        window.dispatchEvent(new CustomEvent("skala:intro-complete"));
       },
       immediately ? 0 : 320,
     );
@@ -92,11 +90,7 @@
     root.classList.add("intro-title-moving");
 
     sequenceTimer = window.setTimeout(() => {
-      root.classList.add("intro-title-arrived", "intro-layout-ready");
-      sequenceTimer = window.setTimeout(() => {
-        root.classList.add("intro-title-swapped");
-        sequenceTimer = window.setTimeout(() => finishIntro(), 380);
-      }, 520);
+      finishIntro();
     }, 680);
   };
 

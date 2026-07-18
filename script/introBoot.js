@@ -1,5 +1,5 @@
 (() => {
-  const introKey = "skala-home-intro-seen-v3";
+  const introKey = "skala-home-intro-seen-v4";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let hasSeenIntro = false;
 

@@ -11,7 +11,7 @@ const introCount = document.querySelector("#intro-count span");
 const validationMessages = {
   userId: "아이디는 4~15자의 영문과 숫자로 입력해주세요.",
   userPw: "비밀번호는 8자 이상 입력해주세요.",
-  userEmail: "이메일 아이디를 입력해주세요.",
+  userEmail: "이메일을 입력해주세요.",
   emailCustomDomain: "올바른 도메인을 입력해주세요. 예: example.com",
   userName: "이름을 입력해주세요.",
   userBirth: "생년월일을 선택해주세요.",

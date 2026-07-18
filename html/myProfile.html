@@ -8,6 +8,9 @@
     <script type="module" src="../script/siteShell.js"></script>
     <script src="../script/reveal.js" defer></script>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/motion.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
   </head>
   <body>
     <header class="site-header">
@@ -19,9 +22,11 @@
             <li><a href="./myClass.html">수업</a></li>
             <li><a href="./holiday.html">휴일</a></li>
             <li><a href="./myTrip.html">여행</a></li>
-            <li><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__account-item"><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__auth-item"><a href="./login.html">로그인</a></li>
           </ul>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="테마 전환"></button>
       </div>
     </header>
 
@@ -31,8 +36,8 @@
           <p class="eyebrow">ABOUT ME</p>
           <h1>안녕하세요! 저를 소개합니다.</h1>
           <p>
-          아래는 제가 좋아하는 것들과 올해의 계획, 그리고 저를 표현하는
-          단어들입니다.
+            아래는 제가 좋아하는 것들과 올해의 계획, 그리고 저를 표현하는
+            단어들입니다.
           </p>
         </header>
 
@@ -47,8 +52,6 @@
             <li>매콤한 떡볶이</li>
           </ul>
         </section>
-
-
         <section class="profile-section" aria-labelledby="year-plan-title">
           <div class="section-heading">
             <p class="eyebrow">2026 PLAN</p>
@@ -60,8 +63,6 @@
             <li>토익 스피킹 IH 이상 취득하기</li>
           </ol>
         </section>
-
-
         <section class="profile-section" aria-labelledby="keywords-title">
           <div class="section-heading">
             <p class="eyebrow">KEYWORDS</p>

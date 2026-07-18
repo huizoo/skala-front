@@ -4,6 +4,7 @@
 
   const scenes = [
     { selector: ".page-heading", type: "page-title" },
+    { selector: ".home-hero__copy", type: "heading" },
     { selector: ".section-heading", type: "heading" },
     {
       selector:
@@ -17,7 +18,7 @@
     { selector: ".holiday-plan-heading, .holiday-day", type: "sequence" },
   ];
 
-  const setupReveal = (skipInitiallyVisible = false) => {
+  const setupReveal = () => {
     const sceneByElement = new Map();
 
     scenes.forEach(({ selector, type }) => {
@@ -29,9 +30,7 @@
       });
     });
 
-    const targets = [...sceneByElement.keys()].filter(
-      (target) => !skipInitiallyVisible || target.getBoundingClientRect().top >= window.innerHeight,
-    );
+    const targets = [...sceneByElement.keys()];
     const groupIndexes = new Map();
 
     targets.forEach((target) => {
@@ -148,9 +147,7 @@
     targets.forEach((target) => observer.observe(target));
   };
 
-  if (document.documentElement.classList.contains("intro-active")) {
-    window.addEventListener("skala:intro-complete", () => setupReveal(true), { once: true });
-  } else if (document.readyState === "loading") {
+  if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => setupReveal(), { once: true });
   } else {
     setupReveal();

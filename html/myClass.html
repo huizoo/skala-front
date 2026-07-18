@@ -8,6 +8,9 @@
     <script type="module" src="../script/siteShell.js"></script>
     <script src="../script/reveal.js" defer></script>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/motion.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
   </head>
   <body>
     <header class="site-header">
@@ -19,9 +22,11 @@
             <li><a href="./myClass.html" aria-current="page">수업</a></li>
             <li><a href="./holiday.html">휴일</a></li>
             <li><a href="./myTrip.html">여행</a></li>
-            <li><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__account-item"><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__auth-item"><a href="./login.html">로그인</a></li>
           </ul>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="테마 전환"></button>
       </div>
     </header>
 

@@ -12,6 +12,11 @@
     <script src="../script/homeIntro.js" defer></script>
     <script src="../script/reveal.js" defer></script>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/motion.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
   </head>
   <body>
     <header class="site-header">
@@ -29,14 +34,16 @@
             <li><a href="./myClass.html">수업</a></li>
             <li><a href="./holiday.html">휴일</a></li>
             <li><a href="./myTrip.html">여행</a></li>
-            <li><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__account-item"><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__auth-item"><a href="./login.html">로그인</a></li>
           </ul>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="테마 전환"></button>
       </div>
     </header>
 
     <main class="home-main">
-        <div class="layout-container">
+      <div class="layout-container">
         <div class="home-dashboard">
           <div class="home-dashboard__primary">
             <section class="home-hero" aria-labelledby="home-title">
@@ -78,7 +85,7 @@
                 </article>
                 <article class="home-photo-card">
                   <button
-                    class="home-photo-card__preview trip-card__preview"
+                    class="trip-card__preview"
                     type="button"
                     data-lightbox-src="../media/리장.jpg"
                     data-lightbox-title="리장, 호도협"
@@ -247,8 +254,8 @@
             </div>
           </aside>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
 
     <dialog
       class="trip-lightbox trip-lightbox--single"

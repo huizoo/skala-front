@@ -8,6 +8,9 @@
     <script type="module" src="../script/siteShell.js"></script>
     <script src="../script/reveal.js" defer></script>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/motion.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
   </head>
   <body>
     <header class="site-header">
@@ -19,9 +22,11 @@
             <li><a href="./myClass.html">수업</a></li>
             <li><a href="./holiday.html">휴일</a></li>
             <li><a href="./myTrip.html" aria-current="page">여행</a></li>
-            <li><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__account-item"><a href="./signUp.html">회원가입</a></li>
+            <li class="site-nav__auth-item"><a href="./login.html">로그인</a></li>
           </ul>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="테마 전환"></button>
       </div>
     </header>
 
@@ -37,7 +42,7 @@
           <div class="section-heading">
             <p class="eyebrow">SOUNDTRACK</p>
             <h2 id="soundtrack-title">여행의 배경 음악</h2>
-            <p class="trip-section-description">
+            <p class="section-description">
               여행의 장면을 천천히 떠올리며 함께 듣는 음악입니다.
             </p>
           </div>
@@ -57,7 +62,7 @@
           <div class="section-heading">
             <p class="eyebrow">PHOTO NOTES</p>
             <h2 id="gallery-title">여행 사진</h2>
-            <p class="trip-section-description">
+            <p class="section-description">
               각 도시에서 오래 기억하고 싶은 풍경을 세 장에 담았습니다.
             </p>
           </div>
@@ -135,7 +140,7 @@
           <div class="section-heading">
             <p class="eyebrow">TRAVEL FILM</p>
             <h2 id="vlog-title">나의 여행 브이로그</h2>
-            <p class="trip-section-description">
+            <p class="section-description">
               사진에 담기지 않은 리장의 움직임과 소리를 기록했습니다.
             </p>
           </div>

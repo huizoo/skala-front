@@ -7,6 +7,8 @@
     <script src="../script/theme.js"></script>
     <script type="module" src="../script/siteShell.js"></script>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
   </head>
   <body>
     <header class="site-header">
@@ -18,9 +20,13 @@
             <li><a href="./myClass.html">수업</a></li>
             <li><a href="./holiday.html">휴일</a></li>
             <li><a href="./myTrip.html">여행</a></li>
-            <li><a href="./signUp.html" aria-current="page">회원가입</a></li>
+            <li class="site-nav__account-item">
+              <a href="./signUp.html" aria-current="page">회원가입</a>
+            </li>
+            <li class="site-nav__auth-item"><a href="./login.html">로그인</a></li>
           </ul>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="테마 전환"></button>
       </div>
     </header>
 
@@ -39,41 +45,41 @@
             <legend><span>01</span> 계정 정보</legend>
             <p class="fieldset-description">로그인과 안내에 사용할 기본 정보를 입력해주세요.</p>
             <div class="form-grid form-grid--two">
-            <div class="form-field">
-              <label for="userId">아이디 <span class="required-mark" aria-label="필수">*</span></label>
-              <input
-                type="text"
-                id="userId"
-                name="userId"
-                minlength="4"
-                maxlength="15"
-                pattern="[A-Za-z0-9]{4,15}"
-                placeholder="4~15자 영문/숫자"
-                autocomplete="username"
-                aria-describedby="userId-hint userId-error"
-                required
-              />
-              <small class="form-hint" id="userId-hint">공백 없이 영문과 숫자만 사용할 수 있습니다.</small>
-              <small class="form-error" id="userId-error" aria-live="polite"></small>
-            </div>
-            <div class="form-field">
-              <label for="userPw">비밀번호 <span class="required-mark" aria-label="필수">*</span></label>
-              <div class="password-field">
+              <div class="form-field">
+                <label for="userId">아이디 <span class="required-mark" aria-label="필수">*</span></label>
                 <input
-                  type="password"
-                  id="userPw"
-                  name="userPw"
-                  minlength="8"
-                  placeholder="8자 이상 입력"
-                  autocomplete="new-password"
-                  aria-describedby="userPw-hint userPw-error"
+                  type="text"
+                  id="userId"
+                  name="userId"
+                  minlength="4"
+                  maxlength="15"
+                  pattern="[A-Za-z0-9]{4,15}"
+                  placeholder="4~15자 영문/숫자"
+                  autocomplete="username"
+                  aria-describedby="userId-hint userId-error"
                   required
                 />
-                <button class="password-toggle" type="button" aria-label="비밀번호 표시" aria-pressed="false">보기</button>
+                <small class="form-hint" id="userId-hint">공백 없이 영문과 숫자만 사용할 수 있습니다.</small>
+                <small class="form-error" id="userId-error" aria-live="polite"></small>
               </div>
-              <small class="form-hint" id="userPw-hint">8자 이상 입력해주세요.</small>
-              <small class="form-error" id="userPw-error" aria-live="polite"></small>
-            </div>
+              <div class="form-field">
+                <label for="userPw">비밀번호 <span class="required-mark" aria-label="필수">*</span></label>
+                <div class="password-field">
+                  <input
+                    type="password"
+                    id="userPw"
+                    name="userPw"
+                    minlength="8"
+                    placeholder="8자 이상 입력"
+                    autocomplete="new-password"
+                    aria-describedby="userPw-hint userPw-error"
+                    required
+                  />
+                  <button class="password-toggle" type="button" aria-label="비밀번호 표시" aria-pressed="false">보기</button>
+                </div>
+                <small class="form-hint" id="userPw-hint">8자 이상 입력해주세요.</small>
+                <small class="form-error" id="userPw-error" aria-live="polite"></small>
+              </div>
             </div>
             <div class="form-field">
               <label for="userEmail">이메일 <span class="required-mark" aria-label="필수">*</span></label>
@@ -98,16 +104,16 @@
             <legend><span>02</span> 프로필 정보</legend>
             <p class="fieldset-description">나중에 변경할 수 있는 선택 정보입니다.</p>
             <div class="form-grid form-grid--two">
-            <div class="form-field">
-              <label for="userName">이름 <span class="required-mark" aria-label="필수">*</span></label>
-              <input type="text" id="userName" name="userName" placeholder="예: 김희주" autocomplete="name" aria-describedby="userName-error" required />
-              <small class="form-error" id="userName-error" aria-live="polite"></small>
-            </div>
-            <div class="form-field">
-              <label for="userBirth">생년월일 <span class="required-mark" aria-label="필수">*</span></label>
-              <input type="date" id="userBirth" name="userBirth" aria-describedby="userBirth-error" required />
-              <small class="form-error" id="userBirth-error" aria-live="polite"></small>
-            </div>
+              <div class="form-field">
+                <label for="userName">이름 <span class="required-mark" aria-label="필수">*</span></label>
+                <input type="text" id="userName" name="userName" placeholder="예: 김희주" autocomplete="name" aria-describedby="userName-error" required />
+                <small class="form-error" id="userName-error" aria-live="polite"></small>
+              </div>
+              <div class="form-field">
+                <label for="userBirth">생년월일 <span class="required-mark" aria-label="필수">*</span></label>
+                <input type="date" id="userBirth" name="userBirth" aria-describedby="userBirth-error" required />
+                <small class="form-error" id="userBirth-error" aria-live="polite"></small>
+              </div>
             </div>
             <div class="form-field">
               <span class="form-label">성별 <span class="optional-mark">선택</span></span>
